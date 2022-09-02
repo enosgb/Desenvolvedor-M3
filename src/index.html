@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <header>
-    <div class="header">
-      <div class="header_itens">
+    <div class="header ">
+      <div class="header_itens container">
         <img class="image_logo" src="./img/logo-m3.png" alt="Logo M3" />
         <button class="btn_sacola">
           <img
@@ -23,7 +23,7 @@
     </div>
   </header>
   <body>
-    <div class="content">
+    <div class="content container">
       <div class="sidebar">
         <h3 class="sidebar_title">Blusas</h3>
         <h3 class="sidebar_title_cores">CORES</h3>
@@ -55,20 +55,17 @@
         <h3 class="sidebar_title_tamanhos">TAMANHOS</h3>
         <div class="tamanhos">
           <div class="caixa_tamanhos"><h3 class="letras_tamanhos">P</h3></div>
+          <div class="caixa_tamanhos tamanho_active">
+            <h3 class="letras_tamanhos">M</h3>
+          </div>
+          <div class="caixa_tamanhos"><h3 class="letras_tamanhos">G</h3></div>
+          <div class="caixa_tamanhos">
+            <h3 class="letras_tamanhosGG">GG</h3>
+          </div>
           <div class="caixa_tamanhos"><h3 class="letras_tamanhos">U</h3></div>
           <div class="caixa_tamanhos">
             <h3 class="letras_tamanhosNum">36</h3>
           </div>
-          <div class="caixa_tamanhos tamanho_active">
-            <h3 class="letras_tamanhos">M</h3>
-          </div>
-          <div class="caixa_tamanhos">
-            <h3 class="letras_tamanhosNum">36</h3>
-          </div>
-          <div class="caixa_tamanhos">
-            <h3 class="letras_tamanhosNum">38</h3>
-          </div>
-          <div class="caixa_tamanhos"><h3 class="letras_tamanhos">G</h3></div>
           <div class="caixa_tamanhos">
             <h3 class="letras_tamanhosNum">38</h3>
           </div>
@@ -76,7 +73,11 @@
             <h3 class="letras_tamanhosNum">40</h3>
           </div>
           <div class="caixa_tamanhos">
-            <h3 class="letras_tamanhosGG">GG</h3>
+            <h3 class="letras_tamanhosNum">36</h3>
+          </div>
+
+          <div class="caixa_tamanhos">
+            <h3 class="letras_tamanhosNum">38</h3>
           </div>
           <div class="caixa_tamanhos">
             <h3 class="letras_tamanhosNum">40</h3>
@@ -128,20 +129,26 @@
           </div>
         </div>
       </div>
-      <!--
 
+      <div class="box">
         <select class="selectOrdenarPor" name="" id="">
           <option value="" disabled hidden selected>Ordenar por:</option>
           <option value="1">Mas Recentes</option>
           <option value="2">Menor Preço</option>
           <option value="3">Maior Preço</option>
         </select>
-      -->
-      <div class="card_produto"></div>
-      <div class="card_produto"></div>
-      <div class="card_produto"></div>
-      <div class="card_produto"></div>
-      
+        <div class="grid_container">
+          <div class="card_produto"></div>
+          <div class="card_produto"></div>
+          <div class="card_produto"></div>
+          <div class="card_produto"></div>
+          <div class="card_produto"></div>
+          <div class="card_produto"></div>
+          <div class="card_produto"></div>
+          <div class="card_produto"></div>
+          <div class="card_produto"></div>
+        </div>
+      </div>
     </div>
   </body>
 

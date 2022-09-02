@@ -3,3 +3,5 @@ fetch("http://localhost:5000/products")
   .then((data) => {
     console.log(data);
   });
+
+  
