@@ -1,3 +1,5 @@
-const serverurl = process.env.SERVER_API;
-
-console.log("Dev m3", serverurl);
+fetch("http://localhost:5000/products")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });

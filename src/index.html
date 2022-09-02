@@ -1,19 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvedor M3</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <header>
+    <div class="header">
+      <div class="header_itens">
+        <img class="image_logo" src="./img/logo-m3.png" alt="Logo M3" />
+        <button class="btn_sacola">
+          <img
+            class="image_sacola"
+            src="./img/image 3.png"
+            alt="Imagem de uma sacola"
+          />
+          <span class="badge badge-danger navbar-badge">1</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <body>
+    <div class="content">
+      <div class="sidebar">
+        <h3 class="sidebar_title">Blusas</h3>
+        <h3 class="sidebar_title_cores">CORES</h3>
+        <div class="">
+          <div class="checkbox">
+            <input type="checkbox" name="fieldset-6" id="checkboxCorAmarelo" />
+            <label class="title_cores" for="checkboxCorAmarelo">Amarelo</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="fieldset-6" id="checkboxCorAzul" />
+            <label class="title_cores" for="checkboxCorAzul">Azul</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="fieldset-6" id="checkboxCorBranco" />
+            <label class="title_cores" for="checkboxCorBranco">Branco</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="fieldset-6" id="checkboxCorCinza" />
+            <label class="title_cores" for="checkboxCorCinza">Cinza</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="fieldset-6" id="checkboxCorLaranja" />
+            <label class="title_cores" for="checkboxCorLaranja">Laranja</label>
+          </div>
+          <a class="color_link" href=""
+            >Ver todas as cores <img src="./img/Vector 1.png" alt=""
+          /></a>
+        </div>
+        <h3 class="sidebar_title_tamanhos">TAMANHOS</h3>
+        <div class="tamanhos">
+          <div class="caixa_tamanhos"><h3 class="letras_tamanhos">P</h3></div>
+          <div class="caixa_tamanhos"><h3 class="letras_tamanhos">U</h3></div>
+          <div class="caixa_tamanhos">
+            <h3 class="letras_tamanhosNum">36</h3>
+          </div>
+          <div class="caixa_tamanhos tamanho_active">
+            <h3 class="letras_tamanhos">M</h3>
+          </div>
+          <div class="caixa_tamanhos">
+            <h3 class="letras_tamanhosNum">36</h3>
+          </div>
+          <div class="caixa_tamanhos">
+            <h3 class="letras_tamanhosNum">38</h3>
+          </div>
+          <div class="caixa_tamanhos"><h3 class="letras_tamanhos">G</h3></div>
+          <div class="caixa_tamanhos">
+            <h3 class="letras_tamanhosNum">38</h3>
+          </div>
+          <div class="caixa_tamanhos">
+            <h3 class="letras_tamanhosNum">40</h3>
+          </div>
+          <div class="caixa_tamanhos">
+            <h3 class="letras_tamanhosGG">GG</h3>
+          </div>
+          <div class="caixa_tamanhos">
+            <h3 class="letras_tamanhosNum">40</h3>
+          </div>
+        </div>
+        <h3 class="sidebar_title_tamanhos">FAIXA DE PREÇO</h3>
+        <div class="">
+          <div class="checkbox">
+            <input type="checkbox" name="fieldset-6" id="checkboxPreco0a50" />
+            <label class="title_cores" for="checkboxPreco0a50"
+              >de R$0 até R$50</label
+            >
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="fieldset-6" id="checkboxPreco51a150" />
+            <label class="title_cores" for="checkboxPreco51a150"
+              >de R$51 até R$150</label
+            >
+          </div>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              name="fieldset-6"
+              id="checkboxPreco151a300"
+            />
+            <label class="title_cores" for="checkboxPreco151a300"
+              >de R$151 até R$300</label
+            >
+          </div>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              name="fieldset-6"
+              id="checkboxPreco301a500"
+            />
+            <label class="title_cores" for="checkboxPreco301a500"
+              >de R$301 até R$500</label
+            >
+          </div>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              name="fieldset-6"
+              id="checkboxPrecoAcima500"
+            />
+            <label class="title_cores" for="checkboxPrecoAcima500"
+              >a partir de R$500</label
+            >
+          </div>
+        </div>
+      </div>
+      <!--
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvedor M3</title>
-  <link rel="stylesheet" href="main.css" />
-</head>
+        <select class="selectOrdenarPor" name="" id="">
+          <option value="" disabled hidden selected>Ordenar por:</option>
+          <option value="1">Mas Recentes</option>
+          <option value="2">Menor Preço</option>
+          <option value="3">Maior Preço</option>
+        </select>
+      -->
+      <div class="card_produto"></div>
+      <div class="card_produto"></div>
+      <div class="card_produto"></div>
+      <div class="card_produto"></div>
+      
+    </div>
+  </body>
 
-<body>
-
-</body>
-<h1>Desafio m3</h1>
-
-<script src="bundle.js"></script>
-
+  <script src="bundle.js"></script>
 </html>
