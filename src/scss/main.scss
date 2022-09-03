@@ -40,6 +40,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
+  background-color: #FFFFFF;
 }
 .content {
   display: flex;
@@ -171,10 +172,8 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.5);
   &:hover {
     color: #000000;
+    transform: scale(1.1);
     cursor: pointer;
-  }
-  &:active::after {
-    color: #000000;
   }
 }
 
@@ -271,9 +270,46 @@ body {
   width: 195px;
   height: 33px;
   &:hover{
+    border: none;
+    transition: 0.5s;
     background-color: #00c0ee;
+    transform: scale(1.1);
     cursor: pointer;
   }
 }
 
 
+.btn_carregarMais{
+  width: 175px;
+  height: 35px;
+  background-color: #00c0ee;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19.07px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  border: none;
+  margin: 81px 0 43px 920px;
+  &:hover{
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 0.3;
+    transform: scale(1.1);
+    
+  }
+}
+
+.footer{
+  width: 100%;
+  height: 33px;
+  bottom: 0;
+  background-color: #000000;
+}
+
+.text_footer{
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 19.07px;
+  text-align: center;
+  padding-top: 7px;
+}

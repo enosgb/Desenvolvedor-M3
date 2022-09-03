@@ -29,29 +29,29 @@
         <h3 class="sidebar_title_cores">CORES</h3>
         <div>
           <div class="checkbox">
-            <input type="checkbox" name="fieldset-6" id="checkboxCorAmarelo" />
+            <input type="radio" name="fieldset-6" id="checkboxCorAmarelo" />
             <label class="sidebar_subtitles" for="checkboxCorAmarelo"
               >Amarelo</label
             >
           </div>
           <div class="checkbox">
-            <input type="checkbox" name="fieldset-6" id="checkboxCorAzul" />
+            <input type="radio" name="fieldset-6" id="checkboxCorAzul" />
             <label class="sidebar_subtitles" for="checkboxCorAzul">Azul</label>
           </div>
           <div class="checkbox">
-            <input type="checkbox" name="fieldset-6" id="checkboxCorBranco" />
+            <input type="radio" name="fieldset-6" id="checkboxCorBranco" />
             <label class="sidebar_subtitles" for="checkboxCorBranco"
               >Branco</label
             >
           </div>
           <div class="checkbox">
-            <input type="checkbox" name="fieldset-6" id="checkboxCorCinza" />
+            <input type="radio" name="fieldset-6" id="checkboxCorCinza" />
             <label class="sidebar_subtitles" for="checkboxCorCinza"
               >Cinza</label
             >
           </div>
           <div class="checkbox">
-            <input type="checkbox" name="fieldset-6" id="checkboxCorLaranja" />
+            <input type="radio" name="fieldset-6" id="checkboxCorLaranja" />
             <label class="sidebar_subtitles" for="checkboxCorLaranja"
               >Laranja</label
             >
@@ -94,20 +94,20 @@
         <h3 class="sidebar_title_tamanhos">FAIXA DE PREÇO</h3>
         <div>
           <div class="checkbox">
-            <input type="checkbox" name="fieldset-6" id="checkboxPreco0a50" />
+            <input type="radio" name="fieldset-6" id="checkboxPreco0a50" />
             <label class="sidebar_subtitles" for="checkboxPreco0a50"
               >de R$0 até R$50</label
             >
           </div>
           <div class="checkbox">
-            <input type="checkbox" name="fieldset-6" id="checkboxPreco51a150" />
+            <input type="radio" name="fieldset-6" id="checkboxPreco51a150" />
             <label class="sidebar_subtitles" for="checkboxPreco51a150"
               >de R$51 até R$150</label
             >
           </div>
           <div class="checkbox">
             <input
-              type="checkbox"
+              type="radio"
               name="fieldset-6"
               id="checkboxPreco151a300"
             />
@@ -117,7 +117,7 @@
           </div>
           <div class="checkbox">
             <input
-              type="checkbox"
+              type="radio"
               name="fieldset-6"
               id="checkboxPreco301a500"
             />
@@ -127,7 +127,7 @@
           </div>
           <div class="checkbox">
             <input
-              type="checkbox"
+              type="radio"
               name="fieldset-6"
               id="checkboxPrecoAcima500"
             />
@@ -144,60 +144,14 @@
           <option value="2">Menor Preço</option>
           <option value="3">Maior Preço</option>
         </select>
-        <div class="grid_container">
-          <div class="produto">
-            <img src="./img/img_10.png" class="img_produto" />
-            <h3 class="produto_title">CAMISETA MESCLA</h3>
-            <h3 class="produto_preco">R$ 28,00</h3>
-            <h3 class="produto_parcelamento">até 3x de R$9,33</h3>
-            <button class="btn_comprar">Comprar</button>
-          </div>
-          <div class="produto">
-            <img src="./img/img_2.png" class="img_produto" />
-            <h3 class="produto_title">CAMISETA MESCLA</h3>
-            <h3 class="produto_preco">R$ 28,00</h3>
-            <h3 class="produto_parcelamento">até 3x de R$9,33</h3>
-            <button class="btn_comprar">Comprar</button>
-          </div>
-          <div class="produto">
-            <img src="./img/img_10.png" class="img_produto" />
-            <h3 class="produto_title">CAMISETA MESCLA</h3>
-            <h3 class="produto_preco">R$ 28,00</h3>
-            <h3 class="produto_parcelamento">até 3x de R$9,33</h3>
-            <button class="btn_comprar">Comprar</button>
-          </div>
-          <div class="produto">
-            <img src="./img/img_10.png" class="img_produto" />
-            <h3 class="produto_title">CAMISETA MESCLA</h3>
-            <h3 class="produto_preco">R$ 28,00</h3>
-            <h3 class="produto_parcelamento">até 3x de R$9,33</h3>
-            <button class="btn_comprar">Comprar</button>
-          </div>
-          <div class="produto">
-            <img src="./img/img_10.png" class="img_produto" />
-            <h3 class="produto_title">CAMISETA MESCLA</h3>
-            <h3 class="produto_preco">R$ 28,00</h3>
-            <h3 class="produto_parcelamento">até 3x de R$9,33</h3>
-            <button class="btn_comprar">Comprar</button>
-          </div>
-          <div class="produto">
-            <img src="./img/img_10.png" class="img_produto" />
-            <h3 class="produto_title">CAMISETA MESCLA</h3>
-            <h3 class="produto_preco">R$ 28,00</h3>
-            <h3 class="produto_parcelamento">até 3x de R$9,33</h3>
-            <button class="btn_comprar">Comprar</button>
-          </div>
-          <div class="produto">
-            <img src="./img/img_10.png" class="img_produto" />
-            <h3 class="produto_title">CAMISETA MESCLA</h3>
-            <h3 class="produto_preco">R$ 28,00</h3>
-            <h3 class="produto_parcelamento">até 3x de R$9,33</h3>
-            <button class="btn_comprar">Comprar</button>
-          </div>
+        <div id="produtos" class="grid_container">          
         </div>
       </div>
     </div>
+    <button class="btn_carregarMais">Carregar mais</button>
   </body>
-
+  <footer>
+    <div class="footer"><h3 class="text_footer">M3: Implantação de E-commerce VTEX</h3></div>
+  </footer>
   <script src="bundle.js"></script>
 </html>
