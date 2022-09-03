@@ -9,7 +9,7 @@
 .header_itens {
   display: flex;
   justify-content: space-between;
-  margin: 0 160px 0 160px;
+  margin: 0 320px 0 320px;
 }
 
 .image_logo {
@@ -43,22 +43,10 @@ body {
 }
 .content {
   display: flex;
-  margin: 0 162px 0 162px;
+  margin: 0 320px 0 320px;
 }
 
-.container{
-  width: 1162px;
-}
 
-.grid_container {
-  display: grid;
-  padding: 144px 144px 0 183px;
-  grid-template-columns: repeat(3,1fr);
-}
-
-.box{
-  position: relative;
-}
 
 
 
@@ -69,6 +57,7 @@ body {
   margin-top: 40px;
   margin-bottom: 64.96px;
   right: 0;
+  margin-right: 320px;
   background-color: #ffffff;
   height: 42px;
   width: 142px;
@@ -76,6 +65,13 @@ body {
   option{
     width: 142px;
   }
+}
+
+
+.sidebar {
+  min-width: 176px;
+  max-width: 176px;
+  width: 100%;
 }
 
 .sidebar_title {
@@ -102,6 +98,12 @@ body {
   letter-spacing: 5%;
   color: #333333;
 }
+
+.sidebar_subtitles {
+  font-size: 14px;
+}
+
+
 .checkbox {
   position: relative;
   padding: 10px 0 10px 40px;
@@ -151,23 +153,11 @@ body {
   }
 }
 
-.sidebar {
-  min-width: 176px;
-  max-width: 176px;
-  width: 100%;
-}
+
 
 .tamanhos {
   display: flex;
   flex-wrap: wrap;
-}
-
-.card_produto {
-  height: 293px;
-  width: 195px;
-  
-  margin: 0 64.75px 173px 0 ;
-  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .caixa_tamanhos {
@@ -204,9 +194,6 @@ body {
   margin: 8px 0 0 7px;
 }
 
-.title_cores {
-  font-size: 14px;
-}
 
 .color_link {
   font-size: 12px;
@@ -238,3 +225,55 @@ body {
  
 }
 */
+
+.grid_container {
+  display: grid;
+  padding: 144px 144px 0 183px;
+  grid-template-columns: repeat(3,1fr);
+  row-gap: 42px;
+  column-gap: 64.75px;
+}
+
+.img_produto {
+  height: 293px;
+  width: 195px;
+}
+
+.produto{
+  text-align: center;
+}
+
+.produto_title{
+  font-size: 14px;
+  line-height: 19.07px;
+  text-transform: uppercase;
+}
+
+.produto_preco{
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21.79px;
+}
+
+.produto_parcelamento{
+  font-size: 16px;
+  line-height: 21.79px;
+  color: #666666;
+}
+
+.btn_comprar{
+  text-transform: uppercase;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19px;
+  width: 195px;
+  height: 33px;
+  &:hover{
+    background-color: #00c0ee;
+    cursor: pointer;
+  }
+}
+
+
