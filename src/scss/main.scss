@@ -272,7 +272,7 @@ body {
   &:hover{
     border: none;
     transition: 0.5s;
-    background-color: #00c0ee;
+    opacity: 0.5;
     transform: scale(1.1);
     cursor: pointer;
   }
