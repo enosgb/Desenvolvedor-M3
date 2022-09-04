@@ -55,11 +55,19 @@ function selectTamanhos() {
   });
 }
 
+function btnCarregarMais(){
+  const btn = document.querySelector('.btn_carregarMais');
+  btn.onclick = function(){
+    console.log('btn carregar mais clicked')
+  }
+}
+
 window.onload = function () {
   btn_sacola()
   btnComprar();
   checkbox();
   selectTamanhos();
+  btnCarregarMais()
 };
 
 getProducts();
