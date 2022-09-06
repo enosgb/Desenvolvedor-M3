@@ -1,4 +1,4 @@
-let produtos;
+let produtos = "";
 function getProducts() {
   const elemento = document.getElementById("produtos");
   document.querySelector(".span_carrinho").hidden = true;
@@ -15,7 +15,7 @@ function getProducts() {
               <h3 class="produto_parcelamento">até ${
                 item.parcelamento[0]
               }x de R$${item.parcelamento[1].toFixed(2)}</h3>
-              <button id=btn${item.id} class="btn_comprar">Comprar</button>
+              <button id=${item.id} class="btn_comprar">Comprar</button>
           </div>`;
         elemento.innerHTML += template;
       });
@@ -25,24 +25,74 @@ function getProducts() {
 function btn_sacola() {
   const btn = document.querySelector(".btn_sacola");
   btn.addEventListener("click", function () {
-    console.log("btn sacola clicked");
-    carrinho();
+    const countItens = document.querySelectorAll(".div_carrinho div").length;
+    const carrinho = document.querySelector(".span_carrinho");
+    if (carrinho && countItens <= 0) {
+      carrinho.innerHTML = `<p class="produto_title">Seu carrinho esta vazio!</p>`;
+      if (!carrinho.hidden) {
+        carrinho.innerHTML = "";
+      }
+    }
+    if (carrinho.hidden) {
+      carrinho.hidden = false;
+    } else {
+      carrinho.hidden = true;
+    }
   });
 }
 
+function CountCarrinhoItens() {
+  const carrinho = document.querySelector(".btn_sacola");
+  const countItens = document.querySelectorAll(".div_carrinho div").length;
+  if (countItens > 0) {
+    carrinho.innerHTML += `
+    <span  class="span_numero_compras">${countItens}</span>
+    `;
+  } else {
+    carrinho.innerHTML = `
+          <img
+          class="img_sacola"
+          src="./img/image 3.png"
+          alt="Imagem de uma sacola"/>
+          `;
+  }
+}
+
 function removerDoCarrinho() {
-  const link = document.querySelector(".link_RemoverDoCarrinho");
-  link.addEventListener("click", function (event) {
-    event.preventDefault();
-    console.log("remover item do carrinho");
+  const carrinho = document.querySelector(".span_carrinho");
+  const link = document.querySelectorAll(".link_RemoverDoCarrinho");
+  link.forEach((link, i) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      carrinho.innerHTML = "";
+      carrinho.hidden = true;
+      CountCarrinhoItens();
+    });
   });
 }
 
 function btnComprar() {
+  const carrinho = document.querySelector(".span_carrinho");
   const btn = document.querySelectorAll(".btn_comprar");
   btn.forEach((btn, i) => {
     btn.addEventListener("click", function (event) {
-      console.log(event.target);
+      const id = event.target.id - 1;
+      const item = produtos[id];
+      carrinho.innerHTML += `
+        <div class="div_carrinho">
+          <img class="img_item_carrinho" src="${item.image}"/>
+          <div class="descricao_item_carrinho">
+            <p class="produto_title">${item.name}</p>
+            <p class="produto_preco">R$ ${item.price.toFixed(2)}</p>
+            <p class="produto_parcelamento">até ${item.parcelamento[0].toFixed(
+              2
+            )}x de R$${item.parcelamento[1].toFixed(2)}</p>
+            <a class="link_RemoverDoCarrinho" href="">Remover do carrinho</a>
+          </div>
+        </div>
+      `;
+      removerDoCarrinho();
+      CountCarrinhoItens();
     });
   });
 }
@@ -92,31 +142,13 @@ function btnCarregarMais() {
             <h3 class="produto_parcelamento">até ${
               item.parcelamento[0]
             }x de R$${item.parcelamento[1].toFixed(2)}</h3>
-            <button id=btn${item.id} class="btn_comprar">Comprar</button>
+            <button id=${item.id} class="btn_comprar">Comprar</button>
         </div>`;
       elemento.innerHTML += template;
     });
     btn.hidden = true;
+    btnComprar();
   });
-}
-
-function carrinho() {
-  const carrinho = document.querySelector(".span_carrinho");
-  if (carrinho.hidden) {
-    carrinho.hidden = false;
-  } else {
-    carrinho.hidden = true;
-  }
-}
-
-function spanCarrinhoItens() {
-  const carrinho = document.querySelector(".btn_sacola");
-  const countItens = document.querySelectorAll(".div_carrinho div").length;
-  if (countItens > 0) {
-    carrinho.innerHTML += `
-    <span  class="span_numero_compras">${countItens}</span>
-    `;
-  }
 }
 
 window.onload = function () {
@@ -126,8 +158,6 @@ window.onload = function () {
   selectTamanhos();
   btnCarregarMais();
   verTodasAsCores();
-  removerDoCarrinho();
-  spanCarrinhoItens();
 };
 
 getProducts();
