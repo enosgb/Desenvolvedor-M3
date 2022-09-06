@@ -10,15 +10,25 @@
   <header>
     <div class="header">
       <div class="header_itens">
-        <img class="image_logo" src="./img/logo-m3.png" alt="Logo M3" />
+        <img class="img_logo" src="./img/logo-m3.png" alt="Logo M3" />
         <button class="btn_sacola">
           <img
-            class="image_sacola"
+            class="img_sacola"
             src="./img/image 3.png"
             alt="Imagem de uma sacola"
-          />
-          <span class="badge badge-danger navbar-badge">1</span>
+          />         
         </button>
+        <span class="span_carrinho">
+          <div class="div_carrinho">
+            <img class="img_item_carrinho" src="./img/img_2.png" alt="" />
+            <div class="descricao_item_carrinho">
+              <p class="produto_title">camiseta mescla</p>
+              <p class="produto_preco">R$ 28,00</p>
+              <p class="produto_parcelamento">até 3x de R$9.33</p>
+              <a class="link_RemoverDoCarrinho" href="">Remover do carrinho</a>
+            </div>
+          </div>
+        </span>
       </div>
     </div>
   </header>
@@ -28,35 +38,109 @@
         <h3 class="sidebar_title">Blusas</h3>
         <h3 class="sidebar_title_cores">CORES</h3>
         <div>
-          <div class="checkbox">
-            <input type="checkbox" name="checkboxCores" id="checkboxCorAmarelo" />
-            <label class="sidebar_subtitles" for="checkboxCorAmarelo"
-              >Amarelo</label
-            >
+          <div id="checkboxCores">
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorAmarelo"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorAmarelo"
+                >Amarelo</label
+              >
+            </div>
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorAzul"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorAzul"
+                >Azul</label
+              >
+            </div>
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorBranco"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorBranco"
+                >Branco</label
+              >
+            </div>
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorCinza"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorCinza"
+                >Cinza</label
+              >
+            </div>
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorLaranja"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorLaranja"
+                >Laranja</label
+              >
+            </div>
+            <div hidden id="checkboxHidden" class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorVerde"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorVerde"
+                >Verde</label
+              >
+            </div>
+            <div hidden id="checkboxHidden" class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorVermelho"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorVermelho"
+                >Vermelho</label
+              >
+            </div>
+            <div hidden id="checkboxHidden" class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorPreto"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorPreto"
+                >Preto</label
+              >
+            </div>
+            <div hidden id="checkboxHidden" class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorRosa"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorRosa"
+                >Rosa</label
+              >
+            </div>
+            <div hidden id="checkboxHidden" class="checkbox">
+              <input
+                type="checkbox"
+                name="checkboxCores"
+                id="checkboxCorVinho"
+              />
+              <label class="sidebar_subtitles" for="checkboxCorVinho"
+                >Vinho</label
+              >
+            </div>
           </div>
-          <div class="checkbox">
-            <input type="checkbox" name="checkboxCores" id="checkboxCorAzul" />
-            <label class="sidebar_subtitles" for="checkboxCorAzul">Azul</label>
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" name="checkboxCores" id="checkboxCorBranco" />
-            <label class="sidebar_subtitles" for="checkboxCorBranco"
-              >Branco</label
-            >
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" name="checkboxCores" id="checkboxCorCinza" />
-            <label class="sidebar_subtitles" for="checkboxCorCinza"
-              >Cinza</label
-            >
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" name="checkboxCores" id="checkboxCorLaranja" />
-            <label class="sidebar_subtitles" for="checkboxCorLaranja"
-              >Laranja</label
-            >
-          </div>
-          <a class="color_link" href=""
+          <a id="verTodasAsCores" class="link_verTodasAsCores" href=""
             >Ver todas as cores <img src="./img/Vector 1.png" alt=""
           /></a>
         </div>
@@ -137,21 +221,26 @@
           </div>
         </div>
       </div>
-      <div>
-        <select class="selectOrdenarPor" name="" id="">
-          <option value="" disabled hidden selected>Ordenar por:</option>
-          <option value="1">Mas Recentes</option>
-          <option value="2">Menor Preço</option>
-          <option value="3">Maior Preço</option>
-        </select>
-        <div id="produtos" class="grid_container">          
+      <div class="container">
+        <div class="div_produtos">
+          <select class="selectOrdenarPor" name="" id="">
+            <option value="" disabled hidden selected>Ordenar por:</option>
+            <option value="1">Mas Recentes</option>
+            <option value="2">Menor Preço</option>
+            <option value="3">Maior Preço</option>
+          </select>
+          <div class="">
+            <div id="produtos" class="grid_container"></div>
+          </div>
         </div>
+        <button class="btn_carregarMais">Carregar mais</button>
       </div>
     </div>
-    <button class="btn_carregarMais">Carregar mais</button>
   </body>
   <footer>
-    <div class="footer"><h3 class="text_footer">M3: Implantação de E-commerce VTEX</h3></div>
+    <div class="footer">
+      <h3 class="text_footer">M3: Implantação de E-commerce VTEX</h3>
+    </div>
   </footer>
   <script src="bundle.js"></script>
 </html>
