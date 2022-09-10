@@ -4,12 +4,14 @@
 /* HEADER*/
 .header {
   border-bottom: 2px solid #c7c7c7;
+  width: 100%;
 }
 
 .header_itens {
   display: flex;
   justify-content: space-between;
-  margin: 0 320px 0 320px;
+  margin: 0 162px;
+  min-width: 1030px;
 }
 
 .img_logo {
@@ -38,7 +40,7 @@
 
 
 .span_numero_compras {
-  margin: 28px 322px 20px 0;
+  margin: 28px 165px 20px 0;
   width: 7px;
   height: 12px;
   position:absolute;
@@ -52,7 +54,7 @@
 }
 
 .span_carrinho{
-  margin: 50px 322px 20px 0;
+  margin: 50px 165px 20px 0;
   position: absolute;
   right: 0;
   background-color: #f5ecec;
@@ -98,7 +100,7 @@ body {
 }
 .content {
   display: flex;
-  margin: 0 320px 0 320px;
+  margin: 0 162px;
 }
 
 
@@ -112,7 +114,7 @@ body {
   margin-top: 40px;
   margin-bottom: 64.96px;
   right: 0;
-  margin-right: 320px;
+  margin-right: 162px;
   background-color: #ffffff;
   height: 42px;
   width: 142px;
@@ -257,10 +259,10 @@ body {
 
 .grid_container {
   display: grid;
-  padding: 144px 144px 0 183px;
   grid-template-columns: repeat(3,1fr);
   row-gap: 42px;
   column-gap: 64.75px;
+  padding-top: 144px;
 }
 
 .img_produto {
@@ -347,6 +349,7 @@ body {
 
 .div_produtos{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 0 auto;
 }
