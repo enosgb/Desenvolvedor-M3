@@ -27,6 +27,8 @@ export class CarrinhoView extends View {
               .join("")}
             `;
   }
+
+
   contaItensCarrinho(NumItensCarrinho, carrinho) {
     if (NumItensCarrinho > 0) {
       carrinho.innerHTML = `
@@ -44,6 +46,10 @@ export class CarrinhoView extends View {
                   alt="Imagem de uma sacola"/>
                   `;
     }
+  }
+
+  carrinhoVazio(carrinho){
+    carrinho.innerHTML = ` <p class="produto_title">O carrinho esta vazio</p>`
   }
 
 }

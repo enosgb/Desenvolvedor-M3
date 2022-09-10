@@ -42,9 +42,14 @@ export class ProdutoController {
 
   _carrinhoSpan() {
     let carrinho = this._carrinho;
-    this._btnSacola.addEventListener("click", function () {
+    let carrinhoView = this._carrinhoView;
+    let listaCompras = this._listaCompras;
+    let btn_sacola = document.querySelector(".header_itens button")
+    btn_sacola.addEventListener("click", function () {
+      let numCompras = listaCompras.compras.length
       if (carrinho.hidden) {
         carrinho.hidden = false;
+        if(numCompras <= 0)  carrinhoView.carrinhoVazio(carrinho);
       } else {
         carrinho.hidden = true;
       }
@@ -57,7 +62,7 @@ export class ProdutoController {
     let carrinho = this._btnSacola;
     this._btnComprar.addEventListener("click", function (event) {
       let id = event.target.id - 1;
-      if (id != -1) {
+      if (id >= 0) {
         listaCompras.adiciona(listaProdutos.produtos[id]);
         carrinhoView.update(listaCompras.compras);
         carrinhoView.contaItensCarrinho(listaCompras.compras.length, carrinho);
@@ -68,20 +73,24 @@ export class ProdutoController {
   _removeItemCarrinho() {
     let listaCompras = this._listaCompras;
     let carrinhoView = this._carrinhoView;
-    let carrinho = this._btnSacola;
+    let carrinho = this._carrinho;
+    let btnSacola = this._btnSacola;
     this._carrinho.addEventListener("click", function (event) {
       event.preventDefault();
-      listaCompras.remove(event.target.id);
-      carrinhoView.update(listaCompras.compras);
-      carrinhoView.contaItensCarrinho(listaCompras.compras.length, carrinho);
+      let id = event.target.id;
+      if (id => 0) {
+        listaCompras.remove(id);
+        carrinhoView.update(listaCompras.compras);
+        carrinhoView.contaItensCarrinho(listaCompras.compras.length, btnSacola);
+        if(listaCompras.compras.length <= 0) carrinho.hidden = true;
+      }
     });
   }
 
   carregarPagina() {
     this._getProdutos();
-    this._carrinhoSpan();
     this._comprar();
+    this._carrinhoSpan();
     this._removeItemCarrinho();
   }
 }
-
