@@ -11,6 +11,9 @@ export class ListaProdutos {
     return [].concat(this._produtos[0]);
   }
 
+  limpar(){
+    this._produtos = [];
+  }
  
   
 }

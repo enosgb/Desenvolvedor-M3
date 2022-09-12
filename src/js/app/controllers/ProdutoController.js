@@ -1,7 +1,9 @@
 import { ProdutosView } from "../views/ProdutosView";
 import { ListaProdutos } from "../models/ListaProdutos";
 import { CarrinhoView } from "../views/CarrinhoView";
-import { ListaCompras } from "../models/LIstaCompras";
+import { ListaCompras } from "../models/ListaCompras";
+import { SidebarController } from "./SidebarController";
+
 
 export class ProdutoController {
   constructor() {
@@ -22,7 +24,9 @@ export class ProdutoController {
       .then((response) => response.json())
       .then((produtos) => {
         this._listaProdutos.adiciona(produtos);
-        this._produtosView.update(this._listaProdutos.produtos.slice(0, 9));
+        this._sidebarController = new SidebarController(produtos);
+        this._sidebarController.carregarSidebar()
+        this._produtosView.update(this._listaProdutos.produtos.slice(0, 9));        
         this._getMaisProdutos(this._listaProdutos.produtos);
       });
   }
@@ -44,8 +48,8 @@ export class ProdutoController {
     let carrinho = this._carrinho;
     let carrinhoView = this._carrinhoView;
     let listaCompras = this._listaCompras;
-    let btn_sacola = document.querySelector(".header_itens button")
-    btn_sacola.addEventListener("click", function () {
+    let btnSacola = document.querySelector(".header_itens button")
+    btnSacola.addEventListener("click", function () {
       let numCompras = listaCompras.compras.length
       if (carrinho.hidden) {
         carrinho.hidden = false;
@@ -59,13 +63,13 @@ export class ProdutoController {
     let listaProdutos = this._listaProdutos;
     let carrinhoView = this._carrinhoView;
     let listaCompras = this._listaCompras;
-    let carrinho = this._btnSacola;
+    let btnSacola = this._btnSacola;
     this._btnComprar.addEventListener("click", function (event) {
       let id = event.target.id - 1;
       if (id >= 0) {
         listaCompras.adiciona(listaProdutos.produtos[id]);
         carrinhoView.update(listaCompras.compras);
-        carrinhoView.contaItensCarrinho(listaCompras.compras.length, carrinho);
+        carrinhoView.contaItensCarrinho(listaCompras.compras.length, btnSacola);
       }
     });
   }
@@ -87,7 +91,9 @@ export class ProdutoController {
     });
   }
 
-  carregarPagina() {
+
+
+  carregarProdutos() {
     this._getProdutos();
     this._comprar();
     this._carrinhoSpan();
