@@ -1,5 +1,5 @@
 import { ProdutosView } from "../views/ProdutosView";
-import { FiltrosController } from "./FiltrosController";
+import { FiltroCorController } from "./FiltroCorController";
 
 export class SidebarController {
   constructor(listaProdutos) {
@@ -12,7 +12,7 @@ export class SidebarController {
     this._produtosView = new ProdutosView($("#produtos"));
     this._btnCarregarMais = $(".btn_carregarMais");
     this._btnTamanhos = $(".tamanhos");
-    this._filtrosController = new FiltrosController(
+    this._filtroCorController = new FiltroCorController(
       this._listaProdutos,
       this._produtosView,
       this._btnCarregarMais,
@@ -34,6 +34,6 @@ export class SidebarController {
 
   carregarSidebar() {
     this._verTodasCores();
-    this._filtrosController.filtros();
+    this._filtroCorController.filtrarPorCor();
   }
 }
