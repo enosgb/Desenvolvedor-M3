@@ -49,7 +49,7 @@ export class CarrinhoView extends View {
   }
 
   carrinhoVazio(carrinho){
-    carrinho.innerHTML = ` <p class="produto_title">O carrinho esta vazio</p>`
+    carrinho.innerHTML = ` <p class="produto_title">O carrinho está vazio</p>`
   }
 
 }

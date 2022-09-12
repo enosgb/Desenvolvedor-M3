@@ -10,7 +10,6 @@ export class SidebarController {
     this._checkboxCores = $("#checkboxCores");
     this._listaProdutos = listaProdutos;
     this._produtosView = new ProdutosView($("#produtos"));
-    //this._listaFiltros = new ListaFiltros();
     this._btnCarregarMais = $(".btn_carregarMais");
     this._btnTamanhos = $(".tamanhos");
     this._filtrosController = new FiltrosController(

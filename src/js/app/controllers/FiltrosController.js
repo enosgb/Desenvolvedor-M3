@@ -34,7 +34,7 @@ export class FiltrosController {
     ) {
       if (listaFiltros.produtos.length > 0) {
         produtosView.update(listaFiltros.produtos);
-        if(listaFiltros.produtos.length < 9 ) btnCarregarmais.hidden = true;
+        if (listaFiltros.produtos.length < 9) btnCarregarmais.hidden = true;
         filtraPorTamanho(
           listaFiltros.produtos,
           produtosView,
@@ -46,7 +46,7 @@ export class FiltrosController {
         if (semResultados) {
           produtosView.update([]);
           filtraPorTamanho([], produtosView, btnTamanhos, btnCarregarmais);
-          if(listaFiltros.produtos.length < 9 ) btnCarregarmais.hidden = true;
+          if (listaFiltros.produtos.length < 9) btnCarregarmais.hidden = true;
           return (semResultados = false);
         } else {
           produtosView.update(todosProdutos.slice(0, 9));
@@ -56,7 +56,7 @@ export class FiltrosController {
             btnTamanhos,
             btnCarregarmais
           );
-          if(todosProdutos.length > 9 ) btnCarregarmais.hidden = false;
+          if (todosProdutos.length > 9) btnCarregarmais.hidden = false;
           return (semResultados = false);
         }
       }
@@ -112,7 +112,7 @@ export class FiltrosController {
       listaFiltros,
       produtosView,
       btnTamanhos,
-      btnCarregarMais
+      btnCarregarmais
     ) {
       let todosTamanhos = listaFiltros;
       btnTamanhos.addEventListener("click", function (event) {
@@ -122,7 +122,7 @@ export class FiltrosController {
           if (btn.length > 1) {
             produtosView.update(todosTamanhos.slice(0, 9));
             btn.remove("tamanho_active");
-            if (todosTamanhos.length > 9) btnCarregarMais.hidden = false;
+            if (todosTamanhos.length >= 9) btnCarregarmais.hidden = false;
           } else {
             btn.add("tamanho_active");
             let tamanho = event.target.textContent;
@@ -137,10 +137,10 @@ export class FiltrosController {
               });
               btn.add("tamanho_active");
               produtosView.update(listaTamanhos);
-              if(listaTamanhos.length < 9 ) btnCarregarmais.hidden = true;
+              btnCarregarmais.hidden = true;
             } else {
               produtosView.update([]);
-              //if(listaTamanhos.length < 9 ) btnCarregarmais.hidden = true;
+              btnCarregarmais.hidden = true;
             }
           }
       });
