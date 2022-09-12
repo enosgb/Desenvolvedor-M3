@@ -16,7 +16,7 @@ export class FiltrosController {
     this._checkboxCores = checkboxCores;
   }
 
-  filtrarPorCor() {
+  filtros() {
     let todosProdutos = this._listaProdutos;
     let listaFiltros = this._listaFiltros;
     let checkboxCores = this._checkboxCores;
@@ -34,7 +34,7 @@ export class FiltrosController {
     ) {
       if (listaFiltros.produtos.length > 0) {
         produtosView.update(listaFiltros.produtos);
-        btnCarregarmais.hidden = true;
+        if(listaFiltros.produtos.length < 9 ) btnCarregarmais.hidden = true;
         filtraPorTamanho(
           listaFiltros.produtos,
           produtosView,
@@ -46,7 +46,7 @@ export class FiltrosController {
         if (semResultados) {
           produtosView.update([]);
           filtraPorTamanho([], produtosView, btnTamanhos, btnCarregarmais);
-          btnCarregarmais.hidden = true;
+          if(listaFiltros.produtos.length < 9 ) btnCarregarmais.hidden = true;
           return (semResultados = false);
         } else {
           produtosView.update(todosProdutos.slice(0, 9));
@@ -56,7 +56,7 @@ export class FiltrosController {
             btnTamanhos,
             btnCarregarmais
           );
-          btnCarregarmais.hidden = false;
+          if(todosProdutos.length > 9 ) btnCarregarmais.hidden = false;
           return (semResultados = false);
         }
       }
@@ -89,20 +89,22 @@ export class FiltrosController {
 
     function realizaFiltros() {
       checkboxCores.addEventListener("click", function (event) {
-        listaFiltros.limpar();
-        semResultados = verificaCheckboxChecked(
-          this.children,
-          semResultados,
-          todosProdutos,
-          listaFiltros
-        );
-        semResultados = verificaFiltros(
-          listaFiltros,
-          produtosView,
-          btnCarregarmais,
-          semResultados,
-          btnTamanhos
-        );
+        if (!event.target.classList.contains("checkbox")) {
+          listaFiltros.limpar();
+          semResultados = verificaCheckboxChecked(
+            this.children,
+            semResultados,
+            todosProdutos,
+            listaFiltros
+          );
+          semResultados = verificaFiltros(
+            listaFiltros,
+            produtosView,
+            btnCarregarmais,
+            semResultados,
+            btnTamanhos
+          );
+        }
       });
     }
 
@@ -120,7 +122,7 @@ export class FiltrosController {
           if (btn.length > 1) {
             produtosView.update(todosTamanhos.slice(0, 9));
             btn.remove("tamanho_active");
-            btnCarregarMais.hidden = false;
+            if (todosTamanhos.length > 9) btnCarregarMais.hidden = false;
           } else {
             btn.add("tamanho_active");
             let tamanho = event.target.textContent;
@@ -135,10 +137,10 @@ export class FiltrosController {
               });
               btn.add("tamanho_active");
               produtosView.update(listaTamanhos);
-              btnCarregarMais.hidden = true;
+              if(listaTamanhos.length < 9 ) btnCarregarmais.hidden = true;
             } else {
               produtosView.update([]);
-              btnCarregarMais.hidden = true;
+              //if(listaTamanhos.length < 9 ) btnCarregarmais.hidden = true;
             }
           }
       });

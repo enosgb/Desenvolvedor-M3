@@ -35,6 +35,6 @@ export class SidebarController {
 
   carregarSidebar() {
     this._verTodasCores();
-    this._filtrosController.filtrarPorCor();
+    this._filtrosController.filtros();
   }
 }
