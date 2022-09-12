@@ -8,12 +8,14 @@ export class FiltrosController {
     btnTamanhos,
     checkboxCores
   ) {
+    let $ = document.querySelector.bind(document);
     this._listaFiltros = new ListaFiltros();
     this._listaProdutos = listaProdutos;
     this._produtosView = produtosView;
     this._btnCarregarMais = btnCarregarmais;
     this._btnTamanhos = btnTamanhos;
     this._checkboxCores = checkboxCores;
+    this._checkboxPrecos = $(".checkboxPrecos");
   }
 
   filtros() {
@@ -24,6 +26,7 @@ export class FiltrosController {
     let btnCarregarmais = this._btnCarregarMais;
     let btnTamanhos = this._btnTamanhos;
     let semResultados = true;
+    let checkboxPrecos = this._checkboxPrecos;
 
     function verificaFiltros(
       listaFiltros,
@@ -62,7 +65,7 @@ export class FiltrosController {
       }
     }
 
-    function verificaCheckboxChecked(
+    function verificaCheckboxCores(
       children,
       semResultados,
       todosProdutos,
@@ -91,7 +94,7 @@ export class FiltrosController {
       checkboxCores.addEventListener("click", function (event) {
         if (!event.target.classList.contains("checkbox")) {
           listaFiltros.limpar();
-          semResultados = verificaCheckboxChecked(
+          semResultados = verificaCheckboxCores(
             this.children,
             semResultados,
             todosProdutos,
@@ -108,6 +111,45 @@ export class FiltrosController {
       });
     }
 
+    function atualizaViewPorTanho(btn, listaTamanhos, produtosView, btnCarregarmais) {
+      if (listaTamanhos.length > 0) {
+        let ativo = document.querySelectorAll(".tamanho_active");
+        ativo.forEach((value, i) => {
+          value.classList.remove("tamanho_active");
+        });
+        btn.add("tamanho_active");
+        produtosView.update(listaTamanhos);
+        btnCarregarmais.hidden = true;
+      } else {
+        produtosView.update([]);
+        btnCarregarmais.hidden = true;
+      }
+    }
+
+    function verificaTamanho(
+      btn,
+      produtosView,
+      todosTamanhos,
+      btnCarregarmais,
+      listaFiltros
+    ) {
+      if (!btn.contains("tamanhos")) {
+        if (btn.length > 1) {
+          produtosView.update(todosTamanhos.slice(0, 9));
+          btn.remove("tamanho_active");
+          if (todosTamanhos.length >= 9) btnCarregarmais.hidden = false;
+        } else {
+          btn.add("tamanho_active");
+          let tamanho = event.target.textContent;
+
+          let listaTamanhos = listaFiltros.filter((p) =>
+            p.size.includes(tamanho)
+          );
+          atualizaViewPorTanho(btn, listaTamanhos, produtosView, btnCarregarmais);
+        }
+      }
+    }
+
     function filtraPorTamanho(
       listaFiltros,
       produtosView,
@@ -118,33 +160,16 @@ export class FiltrosController {
       btnTamanhos.addEventListener("click", function (event) {
         event.preventDefault();
         let btn = event.target.classList;
-        if (!event.target.classList.contains("tamanhos"))
-          if (btn.length > 1) {
-            produtosView.update(todosTamanhos.slice(0, 9));
-            btn.remove("tamanho_active");
-            if (todosTamanhos.length >= 9) btnCarregarmais.hidden = false;
-          } else {
-            btn.add("tamanho_active");
-            let tamanho = event.target.textContent;
-
-            let listaTamanhos = listaFiltros.filter((p) =>
-              p.size.includes(tamanho)
-            );
-            if (listaTamanhos.length > 0) {
-              let ativo = document.querySelectorAll(".tamanho_active");
-              ativo.forEach((value, i) => {
-                value.classList.remove("tamanho_active");
-              });
-              btn.add("tamanho_active");
-              produtosView.update(listaTamanhos);
-              btnCarregarmais.hidden = true;
-            } else {
-              produtosView.update([]);
-              btnCarregarmais.hidden = true;
-            }
-          }
+        verificaTamanho(
+          btn,
+          produtosView,
+          todosTamanhos,
+          btnCarregarmais,
+          listaFiltros
+        );
       });
     }
+
     realizaFiltros();
     filtraPorTamanho(
       this._listaProdutos,
@@ -153,4 +178,5 @@ export class FiltrosController {
       btnCarregarmais
     );
   }
+  
 }
