@@ -22,32 +22,40 @@ export class FilterList {
     this._priceList.push(price);
   }
 
-  removeColor(color){
-    for(let i = 0; i < this._colorList.length; i++){
-      if(this._colorList[i] === color){
-        this._colorList.splice(i,1);
+  removeColor(color) {
+    for (let i = 0; i < this._colorList.length; i++) {
+      if (this._colorList[i] === color) {
+        this._colorList.splice(i, 1);
       }
     }
   }
 
-  removePrice(price){
-    for(let i = 0; i < this._priceList.length; i++){
-      if(this._priceList[i] === price){
-        this._priceList.splice(i,1);
+  removeSize(size) {
+    for (let i = 0; i < this._sizeList.length; i++) {
+      if (this._sizeList[i] === size) {
+        this._sizeList.splice(i, 1);
       }
     }
   }
 
-  removeProduct(product){
-    for(let i = 0;i < this._productsList.length;i++){
-      if(this._productsList[i] === product){
-        this._productsList.splice(i,1);
+  removePrice(price) {
+    for (let i = 0; i < this._priceList.length; i++) {
+      if (this._priceList[i] === price) {
+        this._priceList.splice(i, 1);
       }
     }
   }
 
-  clearProducts(){
-    this._productsList = []
+  removeProduct(product) {
+    for (let i = 0; i < this._productsList.length; i++) {
+      if (this._productsList[i] === product) {
+        this._productsList.splice(i, 1);
+      }
+    }
+  }
+
+  clearProducts() {
+    this._productsList = [];
   }
 
   clearColors() {

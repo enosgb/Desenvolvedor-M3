@@ -1,12 +1,11 @@
 import { FilterList } from "../models/FilterList";
-import { ProductsView } from "../views/ProductsView";
 
 export class FilterController {
   constructor(productsList, productsView) {
     let $ = document.querySelector.bind(document);
     this._productsList = productsList;
     this._checkboxColors = $("#checkboxCores");
-    this._sizeButtons = $(".tamanhos");
+    this._sizeButtons = $(".sizes");
     this._checkboxPrices = $(".checkboxPrecos");
     this._filterlist = new FilterList();
     this._productsView = productsView;
@@ -31,23 +30,42 @@ export class FilterController {
         } else {
           filterList.removeColor(color);
         }
-        filter(filterList.colors, filterList.sizes, filterList.prices);
-        if (filterList.colors.length <= 0 && filterList.prices.length <= 0) {
-          productsView.update(productsList);
+        runFilters(filterList.colors, filterList.sizes, filterList.prices);
+        if (
+          filterList.colors.length <= 0 &&
+          filterList.sizes.length <= 0 &&
+          filterList.prices.length <= 0
+        ) {
+          productsView.update(productsList.slice(0, 9));
+          btnLoadMore.hidden = false;
+        } else {
+          btnLoadMore.hidden = true;
         }
         filterList.clearProducts();
-
-        btnLoadMore.hidden = true;
       });
     }
 
     function sizeFilter() {
       sizeButtons.addEventListener("click", function (event) {
-        event.preventDefault();
-        let size = event.target.textContent;
-        filterList.addSize(size);
-        filter(filterList.colors, filterList.sizes, filterList.prices);
-        filterList.clearSizes();
+        let size = event.target.name;
+        let checked = event.target.checked;
+        if (checked == true) {
+          filterList.addSize(size);
+        } else {
+          filterList.removeSize(size);
+        }
+        runFilters(filterList.colors, filterList.sizes, filterList.prices);
+        if (
+          filterList.colors.length <= 0 &&
+          filterList.sizes.length <= 0 &&
+          filterList.prices.length <= 0
+        ) {
+          productsView.update(productsList.slice(0,9));
+          btnLoadMore.hidden = false;
+        } else {
+          btnLoadMore.hidden = true;
+        }
+        filterList.clearProducts;
       });
     }
 
@@ -60,22 +78,39 @@ export class FilterController {
         } else {
           filterList.removePrice(price);
         }
-        filter(filterList.colors, filterList.sizes, filterList.prices);
-        if (filterList.colors.length <= 0 && filterList.prices.length <= 0) {
-          productsView.update(productsList);
+        runFilters(filterList.colors, filterList.sizes, filterList.prices);
+        if (
+          filterList.colors.length <= 0 &&
+          filterList.sizes.length <= 0 &&
+          filterList.prices.length <= 0
+        ) {
+          productsView.update(productsList.slice(0,9));
+          btnLoadMore.hidden = false;
+        } else {
+          btnLoadMore.hidden = true;
         }
         filterList.clearProducts();
-        btnLoadMore.hidden = true;
       });
     }
 
-    function filter(colorList, sizeList, priceList) {
-      console.log(sizeList);
+    function runFilters(colorList, sizeList, priceList) {
       let products = productsList
         .filter((p) => {
           if (colorList.length >= 1) {
             for (let i = 0; i < colorList.length; i++) {
               if (p.color.includes(colorList[i])) {
+                filterList.addProducts(p);
+                return true;
+              }
+            }
+            return false;
+          }
+          return true;
+        })
+        .filter((p) => {
+          if (sizeList.length >= 1) {
+            for (let i = 0; i < sizeList.length; i++) {
+              if (p.size.includes(sizeList[i])) {
                 filterList.addProducts(p);
                 return true;
               }

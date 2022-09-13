@@ -10,7 +10,7 @@ export class SidebarController {
     this._checkboxColors = $("#checkboxCores");
     this._productsList = productList;
     this._btnLoadMore = $(".btn_carregarMais");
-    this._btnSizes = $(".tamanhos");
+    this._btnSizes = $(".sizes");
     this._productsView = new ProductsView($("#produtos"));
     this._filtersController = new FilterController(productList,this._productsView);
   }
@@ -19,7 +19,7 @@ export class SidebarController {
     let checkboxHidden = this._checkboxHidden;
     this._linkSeeAllColors.addEventListener("click", function (event) {
       event.preventDefault();
-      checkboxHidden.forEach((checkbox, i) => {
+      checkboxHidden.forEach((checkbox,i) => {
         checkbox.hidden = false;
       });
       this.hidden = true;
