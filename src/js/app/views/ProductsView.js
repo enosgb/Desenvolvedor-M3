@@ -1,13 +1,13 @@
 import { View } from "./View.js";
 
-export class ProdutosView extends View {
-  constructor(elemento) {
-    super(elemento);
+export class ProductsView extends View {
+  constructor(element) {
+    super(element);
   }
 
-  template(produtos) {
+  template(products) {
     return `
-            ${produtos
+            ${products
               .map(
                 (p) =>
                   `<div class="produto">

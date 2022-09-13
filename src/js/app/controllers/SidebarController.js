@@ -1,29 +1,23 @@
-import { ProdutosView } from "../views/ProdutosView";
-import { FiltroCorController } from "./FiltroCorController";
+import { ProductsView } from "../views/ProductsView";
+import { FilterController } from "./FilterController";
 
 export class SidebarController {
-  constructor(listaProdutos) {
+  constructor(productList) {
     let $ = document.querySelector.bind(document);
     let $$ = document.querySelectorAll.bind(document);
-    this._linkVerTodasCores = $("#verTodasAsCores");
+    this._linkSeeAllColors = $("#verTodasAsCores");
     this._checkboxHidden = $$("#checkboxHidden");
-    this._checkboxCores = $("#checkboxCores");
-    this._listaProdutos = listaProdutos;
-    this._produtosView = new ProdutosView($("#produtos"));
-    this._btnCarregarMais = $(".btn_carregarMais");
-    this._btnTamanhos = $(".tamanhos");
-    this._filtroCorController = new FiltroCorController(
-      this._listaProdutos,
-      this._produtosView,
-      this._btnCarregarMais,
-      this._btnTamanhos,
-      this._checkboxCores
-    );
+    this._checkboxColors = $("#checkboxCores");
+    this._productsList = productList;
+    this._btnLoadMore = $(".btn_carregarMais");
+    this._btnSizes = $(".tamanhos");
+    this._productsView = new ProductsView($("#produtos"));
+    this._filtersController = new FilterController(productList,this._productsView);
   }
 
-  _verTodasCores() {
+  _seeAllColors() {
     let checkboxHidden = this._checkboxHidden;
-    this._linkVerTodasCores.addEventListener("click", function (event) {
+    this._linkSeeAllColors.addEventListener("click", function (event) {
       event.preventDefault();
       checkboxHidden.forEach((checkbox, i) => {
         checkbox.hidden = false;
@@ -32,8 +26,8 @@ export class SidebarController {
     });
   }
 
-  carregarSidebar() {
-    this._verTodasCores();
-    this._filtroCorController.filtrarPorCor();
+  loadSidebar() {
+    this._seeAllColors();
+    this._filtersController.loadFilters();
   }
 }

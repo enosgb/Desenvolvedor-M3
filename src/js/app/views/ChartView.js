@@ -1,13 +1,13 @@
 import { View } from "./View";
 
-export class CarrinhoView extends View {
-  constructor(elemento) {
-    super(elemento);
+export class ChartView extends View {
+  constructor(element) {
+    super(element);
   }
 
-  template(compras) {
+  template(purchases) {
     return `
-            ${compras
+            ${purchases
               .map(
                 (c) =>
                   `
@@ -29,17 +29,17 @@ export class CarrinhoView extends View {
   }
 
 
-  contaItensCarrinho(NumItensCarrinho, carrinho) {
-    if (NumItensCarrinho > 0) {
-      carrinho.innerHTML = `
+  countItemsChart(numItemsChart, chart) {
+    if (numItemsChart > 0) {
+      chart.innerHTML = `
             <img
             class="img_sacola"
             src="./img/image 3.png"
             alt="Imagem de uma sacola"/>
-            <span  class="span_numero_compras">${NumItensCarrinho}</span>
+            <span  class="span_numero_compras">${numItemsChart}</span>
             `;
     } else {
-      carrinho.innerHTML = `
+      chart.innerHTML = `
                   <img
                   class="img_sacola"
                   src="./img/image 3.png"
@@ -48,8 +48,8 @@ export class CarrinhoView extends View {
     }
   }
 
-  carrinhoVazio(carrinho){
-    carrinho.innerHTML = ` <p class="produto_title">O carrinho está vazio</p>`
+  chartEmpty(chart){
+    chart.innerHTML = ` <p class="produto_title">O carrinho está vazio</p>`
   }
 
 }

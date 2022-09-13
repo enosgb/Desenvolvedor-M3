@@ -1,13 +1,13 @@
 export class View {
-    constructor(elemento){
-        this._elemento = elemento
+    constructor(element){
+        this._element = element
     }
 
     template(){
         throw new Error("O metodo template deve ser implementado")
     }
 
-    update(produtos){
-        this._elemento.innerHTML = this.template(produtos);
+    update(products){
+        this._element.innerHTML = this.template(products);
     }
 }

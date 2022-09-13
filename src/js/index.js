@@ -1,5 +1,5 @@
-import { ProdutoController } from "./app/controllers/ProdutoController.js";
+import { ProductController } from "./app/controllers/ProductController.js";
 
-let produtoController = new ProdutoController();
+let productController = new ProductController();
 
-produtoController.carregarProdutos();
+productController.carregarProdutos();
