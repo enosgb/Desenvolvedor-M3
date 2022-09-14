@@ -6,6 +6,7 @@ $black-color: #000000;
 $grey-dark-color: rgba(0, 0, 0, 0.5);
 $grey-light-color: #666666;
 $white-color: #ffffff;
+$font-default: "Open Sans";
 
 .header {
   border-bottom: 2px solid #c7c7c7;
@@ -88,7 +89,7 @@ $white-color: #ffffff;
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: $font-default, sans-serif;
   background-color: $white-color;
 }
 .content {
@@ -229,9 +230,6 @@ body {
       height: 42px;
       width: 142px;
       border: 1px solid $grey-dark-color;
-      option {
-        width: 142px;
-      }
     }
 
     &__products {

@@ -4,6 +4,7 @@ export class FilterList {
     this._colorList = [];
     this._sizeList = [];
     this._priceList = [];
+    this._orderList = [];
   }
 
   addProducts(product) {
@@ -20,6 +21,10 @@ export class FilterList {
 
   addPrice(price) {
     this._priceList.push(price);
+  }
+
+  addOrder(order){
+    this._orderList.push(order);
   }
 
   removeColor(color) {
@@ -54,18 +59,13 @@ export class FilterList {
     }
   }
 
+
   clearProducts() {
     this._productsList = [];
   }
 
-  clearColors() {
-    this._colorList = [];
-  }
-  clearSizes() {
-    this._sizeList = [];
-  }
-  clearPrices() {
-    this._priceList = [];
+  clearOrder(){
+    this._orderList = [];
   }
 
   get products() {
@@ -82,5 +82,9 @@ export class FilterList {
 
   get prices() {
     return [].concat(this._priceList);
+  }
+
+  get order(){
+    return [].concat(this._orderList);
   }
 }

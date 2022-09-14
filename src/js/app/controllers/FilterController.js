@@ -10,6 +10,7 @@ export class FilterController {
     this._filterlist = new FilterList();
     this._productsView = productsView;
     this._btnLoadMore = $(".content__container__btn_load_more");
+    this._sl_orderby = $("#sl_orderby");
   }
 
   filters() {
@@ -20,6 +21,32 @@ export class FilterController {
     let checkboxPrices = this._checkboxPrices;
     let productsView = this._productsView;
     let btnLoadMore = this._btnLoadMore;
+    let sl_orderby = this._sl_orderby;
+
+    function orderFilter() {
+      sl_orderby.addEventListener("change", function (event) {
+        let order = event.target.value;
+        filterList.clearOrder();
+        filterList.addOrder(order);
+        runFilters(
+          filterList.colors,
+          filterList.sizes,
+          filterList.prices,
+          filterList.order
+        );
+        if (
+          filterList.colors.length <= 0 &&
+          filterList.sizes.length <= 0 &&
+          filterList.prices.length <= 0
+        ) {
+          productsView.update(productsList.slice(0, 9));
+          btnLoadMore.hidden = false;
+        } else {
+          btnLoadMore.hidden = true;
+        }
+        filterList.clearProducts();
+      });
+    }
 
     function colorFilter() {
       checkboxColors.addEventListener("change", function (event) {
@@ -30,7 +57,12 @@ export class FilterController {
         } else {
           filterList.removeColor(color);
         }
-        runFilters(filterList.colors, filterList.sizes, filterList.prices);
+        runFilters(
+          filterList.colors,
+          filterList.sizes,
+          filterList.prices,
+          filterList.order
+        );
         if (
           filterList.colors.length <= 0 &&
           filterList.sizes.length <= 0 &&
@@ -54,13 +86,18 @@ export class FilterController {
         } else {
           filterList.removeSize(size);
         }
-        runFilters(filterList.colors, filterList.sizes, filterList.prices);
+        runFilters(
+          filterList.colors,
+          filterList.sizes,
+          filterList.prices,
+          filterList.order
+        );
         if (
           filterList.colors.length <= 0 &&
           filterList.sizes.length <= 0 &&
           filterList.prices.length <= 0
         ) {
-          productsView.update(productsList.slice(0,9));
+          productsView.update(productsList.slice(0, 9));
           btnLoadMore.hidden = false;
         } else {
           btnLoadMore.hidden = true;
@@ -78,13 +115,18 @@ export class FilterController {
         } else {
           filterList.removePrice(price);
         }
-        runFilters(filterList.colors, filterList.sizes, filterList.prices);
+        runFilters(
+          filterList.colors,
+          filterList.sizes,
+          filterList.prices,
+          filterList.order
+        );
         if (
           filterList.colors.length <= 0 &&
           filterList.sizes.length <= 0 &&
           filterList.prices.length <= 0
         ) {
-          productsView.update(productsList.slice(0,9));
+          productsView.update(productsList.slice(0, 9));
           btnLoadMore.hidden = false;
         } else {
           btnLoadMore.hidden = true;
@@ -93,8 +135,21 @@ export class FilterController {
       });
     }
 
-    function runFilters(colorList, sizeList, priceList) {
+    function runFilters(colorList, sizeList, priceList, order) {
       let products = productsList
+        .sort((a, b) => {
+          if (order.length >= 1) {
+            if (order == "lowest-price") {
+              return a.price - b.price;
+            } else if (order == "biggest-price") {
+              return b.price - a.price;
+            } else if (order == "recent") {
+              return parseInt(b.date.split("-")) - parseInt(a.date.split("-"));
+            } else {
+              return false;
+            }
+          }
+        })
         .filter((p) => {
           if (colorList.length >= 1) {
             for (let i = 0; i < colorList.length; i++) {
@@ -133,12 +188,14 @@ export class FilterController {
           }
           return true;
         });
+
       productsView.update(products);
     }
 
     colorFilter();
     sizeFilter();
     priceFilter();
+    orderFilter();
   }
 
   loadFilters() {
