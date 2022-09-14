@@ -11,15 +11,15 @@ export class ChartView extends View {
               .map(
                 (c) =>
                   `
-                <div class="div_carrinho">
-                  <img class="img_item_carrinho" src="${c.image}"/>
-                  <div class="descricao_c_carrinho">
-                    <p class="produto_title">${c.name}</p>
-                    <p class="produto_preco">R$ ${c.price.toFixed(2)}</p>
-                    <p class="produto_parcelamento">até ${c.parcelamento[0].toFixed(
+                <div class="header__view_cart ">
+                  <img class="header__img_item_cart" src="${c.image}"/>
+                  <div class="header__item_description_cart">
+                    <p class="content__container__product_title">${c.name}</p>
+                    <p class="content__container__product_price">R$ ${c.price.toFixed(2)}</p>
+                    <p class="content__container__product_subdivision">até ${c.parcelamento[0].toFixed(
                       2
                     )}x de R$${c.parcelamento[1].toFixed(2)}</p>
-                    <a id="${c.id}" class="link_RemoverDoCarrinho" href="">Remover do carrinho</a>
+                    <a id="${c.id}" class="header__remover-item-chart" href="">Remover do carrinho</a>
                   </div>
                 </div>
               `
@@ -27,21 +27,24 @@ export class ChartView extends View {
               .join("")}
             `;
   }
-
+  
+  
+    
+  
 
   countItemsChart(numItemsChart, chart) {
     if (numItemsChart > 0) {
       chart.innerHTML = `
             <img
-            class="img_sacola"
+            class="header__img_bag"
             src="./img/image 3.png"
             alt="Imagem de uma sacola"/>
-            <span  class="span_numero_compras">${numItemsChart}</span>
+            <span  class="header__total_purchases">${numItemsChart}</span>
             `;
     } else {
       chart.innerHTML = `
                   <img
-                  class="img_sacola"
+                  class="header__img_bag"
                   src="./img/image 3.png"
                   alt="Imagem de uma sacola"/>
                   `;
@@ -49,7 +52,7 @@ export class ChartView extends View {
   }
 
   chartEmpty(chart){
-    chart.innerHTML = ` <p class="produto_title">O carrinho está vazio</p>`
+    chart.innerHTML = ` <p class="content__container__product_title">O carrinho está vazio</p>`
   }
 
 }

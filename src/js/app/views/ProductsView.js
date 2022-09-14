@@ -10,14 +10,14 @@ export class ProductsView extends View {
             ${products
               .map(
                 (p) =>
-                  `<div class="produto">
-                    <img src="${p.image}" />
-                    <h3 class="produto_title">${p.name}</h3>
-                    <h3 class="produto_preco">R$ ${p.price.toFixed(2)}</h3>
-                    <h3 class="produto_parcelamento">até ${
+                  `<div class="content__container__product">
+                    <img class="content__container__img_product" src="${p.image}" />
+                    <h3 class="content__container__product_title">${p.name}</h3>
+                    <h3 class="content__container__product_price">R$ ${p.price.toFixed(2)}</h3>
+                    <h3 class="content__container__product_subdivision">até ${
                       p.parcelamento[0]
                     }x de R$${p.parcelamento[1].toFixed(2)}</h3>
-                    <button id=${p.id} class="btn_comprar">Comprar</button>
+                    <button id=${p.id} class="content__container__btn_purchase">Comprar</button>
                 </div>`
               )
               .join("")}

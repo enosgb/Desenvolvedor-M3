@@ -5,13 +5,13 @@ export class SidebarController {
   constructor(productList) {
     let $ = document.querySelector.bind(document);
     let $$ = document.querySelectorAll.bind(document);
-    this._linkSeeAllColors = $("#verTodasAsCores");
+    this._linkSeeAllColors = $("#see_all_colors");
     this._checkboxHidden = $$("#checkboxHidden");
-    this._checkboxColors = $("#checkboxCores");
+    this._checkboxColors = $("#checkbox_colors");
     this._productsList = productList;
-    this._btnLoadMore = $(".btn_carregarMais");
+    this._btnLoadMore = $(".content__container__btn_load_more");
     this._btnSizes = $(".sizes");
-    this._productsView = new ProductsView($("#produtos"));
+    this._productsView = new ProductsView($("#products"));
     this._filtersController = new FilterController(productList,this._productsView);
   }
 

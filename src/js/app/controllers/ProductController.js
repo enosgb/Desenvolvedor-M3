@@ -7,13 +7,13 @@ import { SidebarController } from "./SidebarController";
 export class ProductController {
   constructor() {
     let $ = document.querySelector.bind(document);
-    this._chart = $(".span_carrinho");
+    this._chart = $(".header__cart");
     this._chart.hidden = true;
-    this._btnLoadMore = $(".container button");
-    this._btnPurchase = $(".grid_container");
-    this._btnBag = $(".btn_sacola");
+    this._btnLoadMore = $(".content__container button");
+    this._btnPurchase = $(".content__container__grid_container");
+    this._btnBag = $(".header__btn_bag");
     this._productsList = new ProductList();
-    this._productsView = new ProductsView($("#produtos"));
+    this._productsView = new ProductsView($("#products"));
     this._chartView = new ChartView(this._chart);
     this._shoppingList = new ShoppingList();
   }
@@ -47,7 +47,7 @@ export class ProductController {
     let chart = this._chart;
     let chartView = this._chartView;
     let shoppingList = this._shoppingList;
-    let btnBag = document.querySelector(".header_itens button");
+    let btnBag = document.querySelector(".header__items button");
     btnBag.addEventListener("click", function () {
       let countPurchases = shoppingList.purchases.length;
       if (chart.hidden) {

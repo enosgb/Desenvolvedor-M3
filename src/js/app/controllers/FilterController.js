@@ -4,12 +4,12 @@ export class FilterController {
   constructor(productsList, productsView) {
     let $ = document.querySelector.bind(document);
     this._productsList = productsList;
-    this._checkboxColors = $("#checkboxCores");
-    this._sizeButtons = $(".sizes");
-    this._checkboxPrices = $(".checkboxPrecos");
+    this._checkboxColors = $("#checkbox_colors");
+    this._sizeButtons = $(".content__sidebar__sizes");
+    this._checkboxPrices = $(".content__sidebar__prices");
     this._filterlist = new FilterList();
     this._productsView = productsView;
-    this._btnLoadMore = $(".btn_carregarMais");
+    this._btnLoadMore = $(".content__container__btn_load_more");
   }
 
   filters() {
@@ -46,7 +46,7 @@ export class FilterController {
     }
 
     function sizeFilter() {
-      sizeButtons.addEventListener("click", function (event) {
+      sizeButtons.addEventListener("change", function (event) {
         let size = event.target.name;
         let checked = event.target.checked;
         if (checked == true) {
