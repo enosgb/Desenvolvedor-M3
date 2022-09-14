@@ -37,6 +37,26 @@ $font-default: "Open Sans";
       cursor: pointer;
     }
   }
+
+  &__btn_amount{
+    border-radius: 30%;
+    border: solid 2px #c7c7c7;
+    &:hover{
+      
+      cursor: pointer;
+    }
+  }
+  &__img_amount{
+    width: 10px;
+    height: 10px;
+  }
+  &__amountItems{
+    font-size: 15px;
+
+    color: $grey-light-color;
+    bottom: 0;
+  }
+
   &__cart {
     margin: 50px 165px 20px 0;
     position: absolute;
@@ -62,7 +82,7 @@ $font-default: "Open Sans";
   }
   &__img_item_cart {
     background-repeat: repeat;
-    height: 70px;
+    height: 90px;
     border-radius: 4px;
     margin: auto;
     padding: 5px 20px;
@@ -71,7 +91,8 @@ $font-default: "Open Sans";
     margin: auto auto;
   }
 
-  &__remover-item-chart {
+
+  &__remover-item-cart {
     font-size: 12px;
     line-height: 12px;
     color: $grey-light-color;

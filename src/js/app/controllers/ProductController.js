@@ -1,21 +1,22 @@
 import { ProductsView } from "../views/ProductsView";
 import { ProductList } from "../models/ProductList";
-import { ChartView } from "../views/ChartView";
+import { CartView } from "../views/CartView";
 import { ShoppingList } from "../models/ShoppingList";
 import { SidebarController } from "./SidebarController";
+import { CartController } from "./CartController";
 
 export class ProductController {
   constructor() {
     let $ = document.querySelector.bind(document);
-    this._chart = $(".header__cart");
-    this._chart.hidden = true;
+    this._cart = $(".header__cart");
     this._btnLoadMore = $(".content__container button");
     this._btnPurchase = $(".content__container__grid_container");
     this._btnBag = $(".header__btn_bag");
     this._productsList = new ProductList();
     this._productsView = new ProductsView($("#products"));
-    this._chartView = new ChartView(this._chart);
+    this._cartView = new CartView(this._cart);
     this._shoppingList = new ShoppingList();
+    this._cartController = new CartController(this._cartView,this._shoppingList);
   }
 
   _getProducts() {
@@ -43,57 +44,31 @@ export class ProductController {
     });
   }
 
-  _chartSpan() {
-    let chart = this._chart;
-    let chartView = this._chartView;
-    let shoppingList = this._shoppingList;
-    let btnBag = document.querySelector(".header__items button");
-    btnBag.addEventListener("click", function () {
-      let countPurchases = shoppingList.purchases.length;
-      if (chart.hidden) {
-        chart.hidden = false;
-        if (countPurchases <= 0) chartView.chartEmpty(chart);
-      } else {
-        chart.hidden = true;
-      }
-    });
-  }
   _purchase() {
     let productsList = this._productsList;
-    let chartView = this._chartView;
+    let cartView = this._cartView;
     let ShoppingList = this._shoppingList;
     let btnBag = this._btnBag;
     this._btnPurchase.addEventListener("click", function (event) {
-      let id = event.target.id - 1;
+      let id = event.target.id;
       if (id >= 0) {
-        ShoppingList.add(productsList.products[id]);
-        chartView.update(ShoppingList.purchases);
-        chartView.countItemsChart(ShoppingList.purchases.length, btnBag);
+        productsList.products.forEach((p) => {
+          if (p.id == id) {
+            ShoppingList.add(p);
+            cartView.update(ShoppingList.purchases);
+            cartView.countItemsCart(ShoppingList.purchases.length, btnBag); 
+            id = -1
+          }
+        });
       }
     });
   }
 
-  _removeItemChart() {
-    let shoppingList = this._shoppingList;
-    let chartView = this._chartView;
-    let chart = this._chart;
-    let btnBag = this._btnBag;
-    this._chart.addEventListener("click", function (event) {
-      event.preventDefault();
-      let id = event.target.id;
-      if ((id) => 0) {
-        shoppingList.remove(id);
-        chartView.update(shoppingList.purchases);
-        chartView.countItemsChart(shoppingList.purchases.length, btnBag);
-        if (shoppingList.purchases.length <= 0) chart.hidden = true;
-      }
-    });
-  }
+ 
 
   carregarProdutos() {
     this._getProducts();
     this._purchase();
-    this._chartSpan();
-    this._removeItemChart();
+    this._cartController.loadCart()
   }
 }

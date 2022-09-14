@@ -3,8 +3,8 @@ export class ProductList {
     this._products = [];
   }
 
-  add(produto) {
-    this._products.push(produto);
+  add(product) {
+    this._products.push(product);
   }
 
   get products() {
