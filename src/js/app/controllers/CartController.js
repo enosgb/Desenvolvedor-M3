@@ -1,12 +1,11 @@
 export class CartController {
-
-  constructor(cartView,shoppingList){
+  constructor(cartView, shoppingList) {
     let $ = document.querySelector.bind(document);
     this._cart = $(".header__cart");
-    this._cart.hidden = false
+    this._cart.hidden = true;
     this._btnBag = $(".header__btn_bag");
-    this._cartView = cartView
-    this._shoppingList = shoppingList
+    this._cartView = cartView;
+    this._shoppingList = shoppingList;
   }
 
   _cartSpan() {
@@ -41,7 +40,7 @@ export class CartController {
     });
   }
 
-  loadCart(){
+  loadCart() {
     this._cartSpan();
     this._removeItemCart();
   }
