@@ -24,166 +24,222 @@
   </header>
   <body>
     <div class="content">
-      <div class="content__sidebar">
+      <div class="content__subheader">
         <h3 class="content__sidebar_title">Blusas</h3>
-        <h3 class="content__sidebar_title_colors">CORES</h3>
-        <div>
-          <div id="checkbox_colors">
-            <div class="content__sidebar__checkbox checkbox_div">
-              <input type="checkbox" name="Amarelo" id="checkboxCorAmarelo" />
-              <label class="content__sidebar_subtitles" for="checkboxCorAmarelo"
-                >Amarelo</label
-              >
-            </div>
-            <div class="content__sidebar__checkbox">
-              <input type="checkbox" name="Azul" id="checkboxCorAzul" />
-              <label class="content__sidebar_subtitles" for="checkboxCorAzul"
-                >Azul</label
-              >
-            </div>
-            <div class="content__sidebar__checkbox">
-              <input type="checkbox" name="Branco" id="checkboxCorBranco" />
-              <label class="content__sidebar_subtitles" for="checkboxCorBranco"
-                >Branco</label
-              >
-            </div>
-            <div class="content__sidebar__checkbox">
-              <input type="checkbox" name="Cinza" id="checkboxCorCinza" />
-              <label class="content__sidebar_subtitles" for="checkboxCorCinza"
-                >Cinza</label
-              >
-            </div>
-            <div class="content__sidebar__checkbox">
-              <input type="checkbox" name="Laranja" id="checkboxCorLaranja" />
-              <label class="content__sidebar_subtitles" for="checkboxCorLaranja"
-                >Laranja</label
-              >
-            </div>
-            <div hidden id="checkboxHidden" class="content__sidebar__checkbox">
-              <input type="checkbox" name="Verde" id="checkboxCorVerde" />
-              <label class="content__sidebar_subtitles" for="checkboxCorVerde"
-                >Verde</label
-              >
-            </div>
-            <div hidden id="checkboxHidden" class="content__sidebar__checkbox">
-              <input type="checkbox" name="Vermelho" id="checkboxCorVermelho" />
-              <label class="content__sidebar_subtitles" for="checkboxCorVermelho"
-                >Vermelho</label
-              >
-            </div>
-            <div hidden id="checkboxHidden" class="content__sidebar__checkbox">
-              <input type="checkbox" name="Preto" id="checkboxCorPreto" />
-              <label class="content__sidebar_subtitles" for="checkboxCorPreto"
-                >Preto</label
-              >
-            </div>
-            <div hidden id="checkboxHidden" class="content__sidebar__checkbox">
-              <input type="checkbox" name="Rosa" id="checkboxCorRosa" />
-              <label class="content__sidebar_subtitles" for="checkboxCorRosa"
-                >Rosa</label
-              >
-            </div>
-            <div hidden id="checkboxHidden" class="content__sidebar__checkbox">
-              <input type="checkbox" name="Vinho" id="checkboxCorVinho" />
-              <label class="content__sidebar_subtitles" for="checkboxCorVinho"
-                >Vinho</label
-              >
-            </div>
-          </div>
-          <a id="see_all_colors" class="content__sidebar__link_see_all_colors" href=""
-            >Ver todas as cores <img src="./img/Vector 1.png" alt=""
-          /></a>
-        </div>
-        <h3 class="content__sidebar_title_sizes">TAMANHOS</h3>
-        <div class="content__sidebar__sizes">
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="P" id="checkboxSizeP">
-            <label for="checkboxSizeP">P</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="M" id="checkboxSizeM">
-            <label for="checkboxSizeM">M</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="G" id="checkboxSizeG">
-            <label for="checkboxSizeG">G</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="GG" id="checkboxSizeGG">
-            <label for="checkboxSizeGG">GG</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="U" id="checkboxSizeU">
-            <label for="checkboxSizeU">U</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="36" id="checkboxSize36">
-            <label for="checkboxSize36">36</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="38" id="checkboxSize38">
-            <label for="checkboxSize38">38</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="40" id="checkboxSize40">
-            <label for="checkboxSize40">40</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="36" id="checkboxSize36-2">
-            <label for="checkboxSize36-2">36</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="38" id="checkboxSize38-2">
-            <label for="checkboxSize38-2">38</label>
-          </div>
-          <div class="content__sidebar__checkbox_sizes">
-            <input type="checkbox" name="40" id="checkboxSize40-2">
-            <label for="checkboxSize40-2">40</label>
+        <div class="content__container__select_orderby">
+          <button class="content__container__btn_select_oderby">
+            Ordenar por:
+            <img class="img_vector_select" src="./img/vector_select.png" />
+          </button>
+          <div
+            id="select_orderby"
+            class="content__container__select_oderby_content"
+          >
+            <a name="recent">Mas Recentes</a>
+            <a name="lowest-price">Menor Preço</a>
+            <a name="biggest-price">Maior Preço</a>
           </div>
         </div>
-        <h3 class="content__sidebar_title_sizes">FAIXA DE PREÇO</h3>
-        <div class="content__sidebar__prices">
-          <div class="content__sidebar__checkbox">
-            <input type="checkbox" name="checkboxPreco" id="0-50" />
-            <label class="content__sidebar_subtitles" for="0-50">de R$0 até R$50</label>
-          </div>
-          <div class="content__sidebar__checkbox">
-            <input type="checkbox" name="checkboxPreco" id="51-150" />
-            <label class="content__sidebar_subtitles" for="51-150"
-              >de R$51 até R$150</label
-            >
-          </div>
-          <div class="content__sidebar__checkbox">
-            <input type="checkbox" name="checkboxPreco" id="151-300" />
-            <label class="content__sidebar_subtitles" for="151-300"
-              >de R$151 até R$300</label
-            >
-          </div>
-          <div class="content__sidebar__checkbox">
-            <input type="checkbox" name="checkboxPreco" id="301-500" />
-            <label class="content__sidebar_subtitles" for="301-500"
-              >de R$301 até R$500</label
-            >
-          </div>
-          <div class="content__sidebar__checkbox">
-            <input type="checkbox" name="checkboxPreco" id="500" />
-            <label class="content__sidebar_subtitles" for="500">a partir de R$500</label>
-          </div>
+        <div class="content__container__mobile_buttons">
+          <button id="btn_mobile_filter"class="content__container__btn_filter">Filtrar</button>
+          <div class="content__container__subheader_items"></div>
+          <button id="btn_mobile_order" class="content__container__btn_order">Ordenar</button>
         </div>
       </div>
-      <div class="content__container">
-        <select class="content__container__select_orderby"  id="sl_orderby">
-          <option value="default" disabled hidden selected>Ordenar por:</option>
-          <option value="recent">Mas Recentes</option>
-          <option value="lowest-price">Menor Preço</option>
-          <option value="biggest-price">Maior Preço</option>
-        </select>
-        <div class="content__container__products">
+      <div class="content__subcontent">
+        <div class="content__sidebar">
+          <h3 class="content__sidebar_title_colors">CORES</h3>
           <div>
-            <div id="products" class="content__container__grid_container"></div>
+            <div id="checkbox_colors">
+              <div class="content__sidebar__checkbox checkbox_div">
+                <input type="checkbox" name="Amarelo" id="checkboxCorAmarelo" />
+                <label
+                  class="content__sidebar_subtitles"
+                  for="checkboxCorAmarelo"
+                  >Amarelo</label
+                >
+              </div>
+              <div class="content__sidebar__checkbox">
+                <input type="checkbox" name="Azul" id="checkboxCorAzul" />
+                <label class="content__sidebar_subtitles" for="checkboxCorAzul"
+                  >Azul</label
+                >
+              </div>
+              <div class="content__sidebar__checkbox">
+                <input type="checkbox" name="Branco" id="checkboxCorBranco" />
+                <label
+                  class="content__sidebar_subtitles"
+                  for="checkboxCorBranco"
+                  >Branco</label
+                >
+              </div>
+              <div class="content__sidebar__checkbox">
+                <input type="checkbox" name="Cinza" id="checkboxCorCinza" />
+                <label class="content__sidebar_subtitles" for="checkboxCorCinza"
+                  >Cinza</label
+                >
+              </div>
+              <div class="content__sidebar__checkbox">
+                <input type="checkbox" name="Laranja" id="checkboxCorLaranja" />
+                <label
+                  class="content__sidebar_subtitles"
+                  for="checkboxCorLaranja"
+                  >Laranja</label
+                >
+              </div>
+              <div
+                hidden
+                id="checkboxHidden"
+                class="content__sidebar__checkbox"
+              >
+                <input type="checkbox" name="Verde" id="checkboxCorVerde" />
+                <label class="content__sidebar_subtitles" for="checkboxCorVerde"
+                  >Verde</label
+                >
+              </div>
+              <div
+                hidden
+                id="checkboxHidden"
+                class="content__sidebar__checkbox"
+              >
+                <input
+                  type="checkbox"
+                  name="Vermelho"
+                  id="checkboxCorVermelho"
+                />
+                <label
+                  class="content__sidebar_subtitles"
+                  for="checkboxCorVermelho"
+                  >Vermelho</label
+                >
+              </div>
+              <div
+                hidden
+                id="checkboxHidden"
+                class="content__sidebar__checkbox"
+              >
+                <input type="checkbox" name="Preto" id="checkboxCorPreto" />
+                <label class="content__sidebar_subtitles" for="checkboxCorPreto"
+                  >Preto</label
+                >
+              </div>
+              <div
+                hidden
+                id="checkboxHidden"
+                class="content__sidebar__checkbox"
+              >
+                <input type="checkbox" name="Rosa" id="checkboxCorRosa" />
+                <label class="content__sidebar_subtitles" for="checkboxCorRosa"
+                  >Rosa</label
+                >
+              </div>
+              <div
+                hidden
+                id="checkboxHidden"
+                class="content__sidebar__checkbox"
+              >
+                <input type="checkbox" name="Vinho" id="checkboxCorVinho" />
+                <label class="content__sidebar_subtitles" for="checkboxCorVinho"
+                  >Vinho</label
+                >
+              </div>
+            </div>
+            <a
+              id="see_all_colors"
+              class="content__sidebar__link_see_all_colors"
+              href=""
+              >Ver todas as cores <img src="./img/Vector 1.png" alt=""
+            /></a>
+          </div>
+          <h3 class="content__sidebar_title_sizes">TAMANHOS</h3>
+          <div class="content__sidebar__sizes">
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="P" id="checkboxSizeP" />
+              <label for="checkboxSizeP">P</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="M" id="checkboxSizeM" />
+              <label for="checkboxSizeM">M</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="G" id="checkboxSizeG" />
+              <label for="checkboxSizeG">G</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="GG" id="checkboxSizeGG" />
+              <label for="checkboxSizeGG">GG</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="U" id="checkboxSizeU" />
+              <label for="checkboxSizeU">U</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="36" id="checkboxSize36" />
+              <label for="checkboxSize36">36</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="38" id="checkboxSize38" />
+              <label for="checkboxSize38">38</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="40" id="checkboxSize40" />
+              <label for="checkboxSize40">40</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="36" id="checkboxSize36-2" />
+              <label for="checkboxSize36-2">36</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="38" id="checkboxSize38-2" />
+              <label for="checkboxSize38-2">38</label>
+            </div>
+            <div class="content__sidebar__checkbox_sizes">
+              <input type="checkbox" name="40" id="checkboxSize40-2" />
+              <label for="checkboxSize40-2">40</label>
+            </div>
+          </div>
+          <h3 class="content__sidebar_title_sizes">FAIXA DE PREÇO</h3>
+          <div class="content__sidebar__prices">
+            <div class="content__sidebar__checkbox">
+              <input type="checkbox" name="checkboxPreco" id="0-50" />
+              <label class="content__sidebar_subtitles" for="0-50"
+                >de R$0 até R$50</label
+              >
+            </div>
+            <div class="content__sidebar__checkbox">
+              <input type="checkbox" name="checkboxPreco" id="51-150" />
+              <label class="content__sidebar_subtitles" for="51-150"
+                >de R$51 até R$150</label
+              >
+            </div>
+            <div class="content__sidebar__checkbox">
+              <input type="checkbox" name="checkboxPreco" id="151-300" />
+              <label class="content__sidebar_subtitles" for="151-300"
+                >de R$151 até R$300</label
+              >
+            </div>
+            <div class="content__sidebar__checkbox">
+              <input type="checkbox" name="checkboxPreco" id="301-500" />
+              <label class="content__sidebar_subtitles" for="301-500"
+                >de R$301 até R$500</label
+              >
+            </div>
+            <div class="content__sidebar__checkbox">
+              <input type="checkbox" name="checkboxPreco" id="500" />
+              <label class="content__sidebar_subtitles" for="500"
+                >a partir de R$500</label
+              >
+            </div>
           </div>
         </div>
-        <button class="content__container__btn_load_more">Carregar mais</button>
+        <div class="content__container">
+          <div class="content__container__products">
+            <div id="products" class="content__container__grid_container"></div>
+          </div>
+          <button class="content__container__btn_load_more">
+            Carregar mais
+          </button>
+        </div>
       </div>
     </div>
   </body>

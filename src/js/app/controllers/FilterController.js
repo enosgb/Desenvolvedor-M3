@@ -10,10 +10,13 @@ export class FilterController {
     this._filterlist = new FilterList();
     this._productsView = productsView;
     this._btnLoadMore = $(".content__container__btn_load_more");
-    this._sl_orderby = $("#sl_orderby");
+    this._sl_orderby = $(".content__container__btn_select_oderby");
+    this._sl_orderby_content = $(".content__container__select_oderby_content");
+    this._mobile_buttons = $(".content__container__mobile_buttons");
   }
 
   filters() {
+    let $ = document.querySelector.bind(document);
     let filterList = this._filterlist;
     let productsList = this._productsList;
     let checkboxColors = this._checkboxColors;
@@ -22,10 +25,57 @@ export class FilterController {
     let productsView = this._productsView;
     let btnLoadMore = this._btnLoadMore;
     let sl_orderby = this._sl_orderby;
+    let sl_orderby_content = this._sl_orderby_content;
+    let select_content = this._sl_orderby_content;
+    let mobile_buttons = this._mobile_buttons;
+    let mb_title = $(".content__subheader");
+    let mb_produtos = $(".content__container");
+    let mb_footer = $(".footer");
+    let sidebar = $(".content__sidebar");
+
+    function hideAndUnhideScreen() {
+      if (mb_footer.classList.contains("mobile_hide")) {
+        mb_title.classList.add("content__subheader");
+        mb_title.classList.remove("mobile_hide");
+        mb_produtos.classList.remove("mobile_hide");
+        mb_footer.classList.remove("mobile_hide")
+      } else {
+        mb_title.classList.remove("content__subheader");
+        mb_title.classList.add("mobile_hide");
+        mb_produtos.classList.add("mobile_hide");
+        mb_footer.classList.add("mobile_hide");
+      }
+    }
+
+    function mobileButtons() {
+      mobile_buttons.addEventListener("click", function (event) {
+        event.preventDefault();
+        hideAndUnhideScreen();
+        if(event.target.id == "btn_mobile_filter"){
+          sidebar.style.display = "block"
+        }else{
+
+        }
+      });
+    }
 
     function orderFilter() {
-      sl_orderby.addEventListener("change", function (event) {
-        let order = event.target.value;
+      function actionSelect(content) {
+        if (content.style.display == "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      }
+      sl_orderby.addEventListener("click", function (event) {
+        event.preventDefault();
+        actionSelect(select_content);
+      });
+      sl_orderby_content.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("teste2");
+        actionSelect(select_content);
+        let order = event.target.name;
         filterList.clearOrder();
         filterList.addOrder(order);
         runFilters(
@@ -196,6 +246,7 @@ export class FilterController {
     sizeFilter();
     priceFilter();
     orderFilter();
+    mobileButtons();
   }
 
   loadFilters() {

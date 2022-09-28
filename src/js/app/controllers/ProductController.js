@@ -9,7 +9,7 @@ export class ProductController {
   constructor() {
     let $ = document.querySelector.bind(document);
     this._cart = $(".header__cart");
-    this._btnLoadMore = $(".content__container button");
+    this._btnLoadMore = $(".content__container__btn_load_more");
     this._btnPurchase = $(".content__container__grid_container");
     this._btnBag = $(".header__btn_bag");
     this._productsList = new ProductList();
@@ -37,16 +37,16 @@ export class ProductController {
         this._sidebarController = new SidebarController(products);
         this._sidebarController.loadSidebar();
         this._productsView.update(this._productsList.products.slice(0, lenProducts));
-        this._getMoreProducts(this._productsList.products);
+        this._getMoreProducts(this._productsList.products,lenProducts);
       });
   }
 
-  _getMoreProducts(products) {
-    let length = 9;
+  _getMoreProducts(products,lenProducts) {
+    let length = lenProducts;
     let productList = this._productsList;
     let productsView = this._productsView;
     this._btnLoadMore.addEventListener("click", function () {
-      length += 9;
+      length += lenProducts;
       productsView.update(productList.products.slice(0, length));
       if (products.length <= length) {
         this.hidden = true;
