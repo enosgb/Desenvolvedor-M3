@@ -1,9 +1,9 @@
-import { ProductsView } from "../views/ProductsView";
-import { ProductList } from "../models/ProductList";
-import { CartView } from "../views/CartView";
-import { ShoppingList } from "../models/ShoppingList";
-import { SidebarController } from "./SidebarController";
-import { CartController } from "./CartController";
+import { ProductsView } from "../views/ProductsView.js";
+import { ProductList } from "../models/ProductList.js";
+import { CartView } from "../views/CartView.js";
+import { ShoppingList } from "../models/ShoppingList.js";
+import { SidebarController } from "./SidebarController.js";
+import { CartController } from "./CartController.js";
 
 export class ProductController {
   constructor() {

@@ -1,6 +1,6 @@
-import { ProductsView } from "../views/ProductsView";
-import { FilterController } from "./FilterController";
-
+import { ProductsView } from "../views/ProductsView.js";
+import { FilterController } from "./FilterController.js";
+import { ProductController } from "./ProductController.js";
 export class SidebarController {
   constructor(products) {
     let $ = document.querySelector.bind(document);
@@ -12,14 +12,25 @@ export class SidebarController {
     this._btnLoadMore = $(".content__container__btn_load_more");
     this._btnSizes = $(".sizes");
     this._productsView = new ProductsView($("#products"));
-    this._filtersController = new FilterController(products,this._productsView);
+    this._filtersController = new FilterController(
+      products,
+      this._productsView
+    );
+    this._productController = new ProductController();
+    this._lenProducts = this._productController._validateScreen();
   }
 
   _seeAllColors() {
     let checkboxHidden = this._checkboxHidden;
+    if(this._lenProducts < 9){
+      checkboxHidden.forEach((checkbox,i)=>{
+        checkbox.hidden = false;
+        this._linkSeeAllColors.hidden = true;
+      }) 
+    }
     this._linkSeeAllColors.addEventListener("click", function (event) {
       event.preventDefault();
-      checkboxHidden.forEach((checkbox,i) => {
+      checkboxHidden.forEach((checkbox, i) => {
         checkbox.hidden = false;
       });
       this.hidden = true;

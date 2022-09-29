@@ -265,6 +265,23 @@ body {
     font-size: 14px;
   }
 
+  &__sidebar_subtitle_mobile {
+    display: flex;
+    justify-content: space-between;
+    min-width: 330px;
+  }
+
+  &__sidebar_img_expand_mobile_colors {
+    display: none;
+    height: 13px;
+    width: 18px;
+  }
+  &__sidebar_img_expand_mobile_others {
+    display: none;
+    height: 13px;
+    width: 18px;
+  }
+
   &__container {
     display: flex;
     margin: 0 auto;
@@ -469,9 +486,13 @@ body {
     }
   }
 
-  .mobile_hide{
+  .mobile_hide {
     display: none;
   }
+  .mobile_show{
+    display: block;
+  }
+
   .content {
     margin: 0 auto;
 
@@ -486,8 +507,47 @@ body {
 
     &__sidebar {
       display: none;
+      margin: 30px 16px;
+
+      &__checkboxes_colors{
+        display: none;
+      }
+
+      &__sizes{
+        display: none;
+      }
+
+      &__prices{
+        display: none;
+      }
     }
 
+
+
+    &__sidebar_title_colors {
+      color: $grey-light-color;
+      font-size: 24px;
+      line-height: 32.68px;
+      margin: 0;
+      margin-bottom: 30px;
+    }
+
+    &__sidebar_img_expand_mobile_colors {
+      display: block;
+    }
+
+    &__sidebar_img_expand_mobile_others {
+      display: block;
+    }
+
+    &__sidebar_title_sizes {
+      color: $grey-light-color;
+      font-size: 24px;
+      line-height: 32.68px;
+      width: 183px;
+      margin: 0;
+      margin-bottom: 30px;
+    }
 
 
     &__sidebar_title {
@@ -512,18 +572,10 @@ body {
 
       &__btn_select_oderby {
         display: none;
-        position: absolute;
-        overflow: hidden;
-        opacity: 0;
-        pointer-events: none;
       }
 
       &__select_oderby_content {
         display: none;
-        position: absolute;
-        overflow: hidden;
-        opacity: 0;
-        pointer-events: none;
       }
 
       &__select_orderby {
