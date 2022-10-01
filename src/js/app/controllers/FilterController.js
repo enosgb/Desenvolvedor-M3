@@ -14,7 +14,6 @@ export class FilterController {
     this._btnLoadMore = $(".content__container__btn_load_more");
     this._sl_orderby = $(".content__container__btn_select_oderby");
     this._sl_orderby_content = $(".content__container__select_oderby_content");
-    
   }
 
   filters() {
@@ -28,12 +27,13 @@ export class FilterController {
     let sl_orderby = this._sl_orderby;
     let sl_orderby_content = this._sl_orderby_content;
     let select_content = this._sl_orderby_content;
-    
+    let mobileController = this._mobileController;
 
     function orderFilter() {
       function actionSelect(content) {
         if (content.style.display == "block") {
           content.style.display = "none";
+          mobileController.hideAndUnhideScreen("show");
         } else {
           content.style.display = "block";
         }

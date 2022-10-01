@@ -15,6 +15,7 @@ export class MobileController {
     this._content_div_sizes = $(".content__sidebar__sizes");
     this._content_div_prices = $(".content__sidebar__prices");
     this._mb_submit_buttons = $(".content__sidebar__btn_submit_filters");
+    this._mb_select_orderby = $(".content__container__select_orderby");
   }
 
   mobile() {
@@ -33,7 +34,7 @@ export class MobileController {
     let content_div_prices = this._content_div_prices;
     let mb_submit_buttons = this._mb_submit_buttons;
 
-    function hideAndUnhideScreen(action="hide") {
+    function hideAndUnhideScreen(action = "hide") {
       if (action == "show") {
         mb_subcontent.classList.add("content__subheader");
         mb_subcontent.classList.remove("hide-mobile");
@@ -41,8 +42,8 @@ export class MobileController {
         mb_btnFilters.style.display = "flex";
         mb_products.style.display = "block";
         mb_footer.style.display = "block";
-      } 
-      if (action == "hide"){
+      }
+      if (action == "hide") {
         mb_subcontent.classList.remove("content__subheader");
         mb_subcontent.classList.add("hide-mobile");
         mb_title.style.display = "none";
@@ -52,14 +53,14 @@ export class MobileController {
       }
     }
 
-    function hideAndUnhideSelectMobile() {
+    function hideAndUnhideSelectMobile(display = "none") {
       let $ = document.querySelector.bind(document);
       let select_orderby_content = $(
         ".content__container__select_oderby_content"
       );
       let select_orderby = $(".content__container__select_orderby");
-      select_orderby_content.style.display = "block";
-      select_orderby.style.display = "block";
+      select_orderby_content.style.display = display;
+      select_orderby.style.display = display;
     }
 
     function mobileButtons() {
@@ -73,7 +74,7 @@ export class MobileController {
         if (event.target.id == "btn_mobile_filter") {
           sidebar.style.display = "block";
         } else {
-          hideAndUnhideSelectMobile();
+          hideAndUnhideSelectMobile("block");
         }
       });
     }
@@ -81,22 +82,57 @@ export class MobileController {
     function expandDivMobile(content, div, display) {
       div.addEventListener("click", function (event) {
         if (content.style.display == "block") content.style.display = "none";
-        else if (content.style.display == "flex")
+        else if (content.style.display == "flex") {
           content.style.display = "none";
-        else content.style.display = display;
+          showBtnSubmitButtons("none");
+        } else {
+          content.style.display = display;
+          showBtnSubmitButtons("flex");
+        }
       });
     }
 
     function submitFiltersMobile() {
-      mb_submit_buttons.addEventListener("click",function(event){
+      mb_submit_buttons.addEventListener("click", function (event) {
         hideAndUnhideScreen("show");
+        showBtnSubmitButtons("none");
         sidebar.style.display = "none";
         expandDivMobile(content_div_colors, mb_div_colors, "block");
         expandDivMobile(content_div_sizes, mb_div_sizes, "flex");
         expandDivMobile(content_div_prices, mb_div_prices, "block");
-      })
+      });
+    }
+
+    function showBtnSubmitButtons(display) {
+      mb_submit_buttons.style.display = display;
     }
 
     mobileButtons();
+  }
+  hideAndUnhideScreen(action = "hide") {
+    let mb_subcontent = this._mb_subcontent;
+    let mb_title = this._mb_title;
+    let mb_btnFilters = this._mb_btnFilters;
+    let mb_products = this._mb_products;
+    let mb_footer = this._mb_footer;
+    let mb_select_orderby = this._mb_select_orderby;
+
+    if (action == "show") {
+      mb_subcontent.classList.add("content__subheader");
+      mb_subcontent.classList.remove("hide-mobile");
+      mb_title.style.display = "block";
+      mb_btnFilters.style.display = "flex";
+      mb_products.style.display = "block";
+      mb_footer.style.display = "block";
+      mb_select_orderby.style.display = "none";
+    }
+    if (action == "hide") {
+      mb_subcontent.classList.remove("content__subheader");
+      mb_subcontent.classList.add("hide-mobile");
+      mb_title.style.display = "none";
+      mb_btnFilters.style.display = "none";
+      mb_products.style.display = "none";
+      mb_footer.style.display = "none";
+    }
   }
 }
