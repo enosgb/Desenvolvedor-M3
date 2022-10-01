@@ -2,6 +2,7 @@ export class MobileController {
   constructor() {
     let $ = document.querySelector.bind(document);
     this._mobile_buttons = $(".content__container__mobile_buttons");
+    this._mb_subcontent = $("#content__subheader");
     this._mb_title = $(".content__sidebar_title");
     this._mb_btnFilters = $(".content__container__mobile_buttons");
     this._mb_products = $(".content__container");
@@ -13,11 +14,12 @@ export class MobileController {
     this._content_div_colors = $(".content__sidebar__checkboxes_colors");
     this._content_div_sizes = $(".content__sidebar__sizes");
     this._content_div_prices = $(".content__sidebar__prices");
+    this._mb_submit_buttons = $(".content__sidebar__btn_submit_filters");
   }
 
   mobile() {
-    let $ = document.querySelector.bind(document);
     let mobile_buttons = this._mobile_buttons;
+    let mb_subcontent = this._mb_subcontent;
     let mb_title = this._mb_title;
     let mb_btnFilters = this._mb_btnFilters;
     let mb_products = this._mb_products;
@@ -29,33 +31,33 @@ export class MobileController {
     let content_div_colors = this._content_div_colors;
     let content_div_sizes = this._content_div_sizes;
     let content_div_prices = this._content_div_prices;
+    let mb_submit_buttons = this._mb_submit_buttons;
 
-    function hideAndUnhideScreen() {
-      if (mb_footer.classList.contains("mobile_hide")) {
-        mb_title.classList.add("content__sidebar_title");
-        mb_btnFilters.add("content__container__mobile_buttons");
-        mb_title.classList.remove("mobile_hide");
-        mb_btnFilters.classList.remove("mobile_hide");
-        mb_products.classList.remove("mobile_hide");
-        mb_footer.classList.remove("mobile_hide");
-      } else {
-        mb_title.classList.remove("content__sidebar_title");
-        mb_btnFilters.remove("content__container__mobile_buttons");
-        mb_title.classList.add("mobile_hide");
-        mb_btnFilters.classList.add("mobile_hide");
-        mb_products.classList.add("mobile_hide");
-        mb_footer.classList.add("mobile_hide");
+    function hideAndUnhideScreen(action="hide") {
+      if (action == "show") {
+        mb_subcontent.classList.add("content__subheader");
+        mb_subcontent.classList.remove("hide-mobile");
+        mb_title.style.display = "block";
+        mb_btnFilters.style.display = "flex";
+        mb_products.style.display = "block";
+        mb_footer.style.display = "block";
+      } 
+      if (action == "hide"){
+        mb_subcontent.classList.remove("content__subheader");
+        mb_subcontent.classList.add("hide-mobile");
+        mb_title.style.display = "none";
+        mb_btnFilters.style.display = "none";
+        mb_products.style.display = "none";
+        mb_footer.style.display = "none";
       }
     }
 
     function hideAndUnhideSelectMobile() {
       let $ = document.querySelector.bind(document);
-      let btn_select_order = $(".content__container__btn_select_oderby");
       let select_orderby_content = $(
         ".content__container__select_oderby_content"
       );
       let select_orderby = $(".content__container__select_orderby");
-      //btn_select_order.style.display = "block";
       select_orderby_content.style.display = "block";
       select_orderby.style.display = "block";
     }
@@ -66,6 +68,7 @@ export class MobileController {
         expandDivMobile(content_div_colors, mb_div_colors, "block");
         expandDivMobile(content_div_sizes, mb_div_sizes, "flex");
         expandDivMobile(content_div_prices, mb_div_prices, "block");
+        submitFiltersMobile();
         hideAndUnhideScreen();
         if (event.target.id == "btn_mobile_filter") {
           sidebar.style.display = "block";
@@ -77,9 +80,21 @@ export class MobileController {
 
     function expandDivMobile(content, div, display) {
       div.addEventListener("click", function (event) {
-        if (content.style.display == "none") content.style.display = display;
-        else content.style.display = "none";
+        if (content.style.display == "block") content.style.display = "none";
+        else if (content.style.display == "flex")
+          content.style.display = "none";
+        else content.style.display = display;
       });
+    }
+
+    function submitFiltersMobile() {
+      mb_submit_buttons.addEventListener("click",function(event){
+        hideAndUnhideScreen("show");
+        sidebar.style.display = "none";
+        expandDivMobile(content_div_colors, mb_div_colors, "block");
+        expandDivMobile(content_div_sizes, mb_div_sizes, "flex");
+        expandDivMobile(content_div_prices, mb_div_prices, "block");
+      })
     }
 
     mobileButtons();
