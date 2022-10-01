@@ -41,7 +41,7 @@ export class MobileController {
       } else {
         mb_title.classList.remove("content__sidebar_title");
         mb_btnFilters.remove("content__container__mobile_buttons");
-        mb_title.style.add("mobile_hide");
+        mb_title.classList.add("mobile_hide");
         mb_btnFilters.classList.add("mobile_hide");
         mb_products.classList.add("mobile_hide");
         mb_footer.classList.add("mobile_hide");
