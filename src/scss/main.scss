@@ -1,12 +1,17 @@
 @import "reset";
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 
 $primary-color: #00c0ee;
 $black-color: #000000;
 $grey-dark-color: rgba(0, 0, 0, 0.5);
 $grey-light-color: #666666;
 $white-color: #ffffff;
-$font-default: "Open Sans";
+$font-default: "Open Sans",sans-serif;
+
+* , html, body{
+  font-family: $font-default;
+}
 
 .header {
   border-bottom: 2px solid #c7c7c7;
@@ -118,12 +123,6 @@ $font-default: "Open Sans";
     border: solid 2px #c7c7c7;
   }
 }
-
-body {
-  font-family: $font-default, sans-serif;
-  background-color: $white-color;
-}
-
 
 .content {
   display: flex;
@@ -261,6 +260,7 @@ body {
       line-height: 19.07px;
       height: 35px;
       width: 160px;
+      background-color: transparent;
     }
   }
 
@@ -345,7 +345,7 @@ body {
       width: 343px;
       height: 50px;
       box-sizing: border-box;
-      border: 1px solid $grey-dark-color
+      border: 1px solid $grey-light-color;
     }
 
     &__btn_filter {
@@ -353,7 +353,8 @@ body {
       border: none;
       font-size: 24px;
       line-height: 32.68px;
-      color: $grey-dark-color;
+      color: $grey-light-color;
+      background-color: transparent;
     }
 
     &__btn_order {
@@ -361,7 +362,8 @@ body {
       border: none;
       font-size: 24px;
       line-height: 32.68px;
-      color: $grey-dark-color;
+      color: $grey-light-color;
+      background-color: transparent;
     }
 
     &__select_oderby_content {
@@ -443,6 +445,7 @@ body {
       line-height: 19px;
       width: 195px;
       height: 33px;
+      border: 0;
 
       &:hover {
         border: none;
