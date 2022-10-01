@@ -511,18 +511,24 @@ body {
 
       &__checkboxes_colors{
         display: none;
+        margin-top: 20px;
       }
 
       &__sizes{
         display: none;
+        margin-top: 20px;
       }
 
       &__prices{
         display: none;
+        margin-top: 20px;
       }
     }
 
-
+    &__sidebar_subtitle_mobile {
+      height: 33px;
+      margin-top: 30px;
+    }
 
     &__sidebar_title_colors {
       color: $grey-light-color;
@@ -534,10 +540,12 @@ body {
 
     &__sidebar_img_expand_mobile_colors {
       display: block;
+      margin-top: 7px;
     }
 
     &__sidebar_img_expand_mobile_others {
       display: block;
+      margin-top: 7px;
     }
 
     &__sidebar_title_sizes {
