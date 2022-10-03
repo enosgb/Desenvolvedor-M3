@@ -24,7 +24,8 @@ export class ProductController {
   }
 
   _validateScreen() {
-    if (screen.width > 600 && screen.width < 1300) return 6;
+    if (screen.width > 600 && screen.width <= 768) return 6;
+    else if (screen.width > 768 && screen.width < 1300) return 9;
     else if (screen.width <= 600) return 4;
     else return 9;
   }
@@ -34,7 +35,7 @@ export class ProductController {
       .then((response) => response.json())
       .then((products) => {
         this._productsList.add(products);
-        this._sidebarController = new SidebarController(products);
+        this._sidebarController = new SidebarController(products,lenProducts);
         this._sidebarController.loadSidebar();
         this._productsView.update(this._productsList.products.slice(0, lenProducts));
         this._getMoreProducts(this._productsList.products,lenProducts);

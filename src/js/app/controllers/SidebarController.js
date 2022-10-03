@@ -2,7 +2,7 @@ import { ProductsView } from "../views/ProductsView.js";
 import { FilterController } from "./FilterController.js";
 import { ProductController } from "./ProductController.js";
 export class SidebarController {
-  constructor(products) {
+  constructor(products,lenProducts) {
     let $ = document.querySelector.bind(document);
     let $$ = document.querySelectorAll.bind(document);
     this._linkSeeAllColors = $("#see_all_colors");
@@ -14,15 +14,15 @@ export class SidebarController {
     this._productsView = new ProductsView($("#products"));
     this._filtersController = new FilterController(
       products,
-      this._productsView
+      this._productsView,
+      lenProducts
     );
     this._productController = new ProductController();
-    this._lenProducts = this._productController._validateScreen();
   }
 
   _seeAllColors() {
     let checkboxHidden = this._checkboxHidden;
-    if(this._lenProducts < 9){
+    if(screen.width < 1300){
       checkboxHidden.forEach((checkbox,i)=>{
         checkbox.hidden = false;
         this._linkSeeAllColors.hidden = true;

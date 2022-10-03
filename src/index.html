@@ -14,7 +14,7 @@
   </head>
   <header>
     <div class="header">
-      <div class="header__items">
+      <div id="header_default" class="header__items">
         <img class="header__img_logo" src="./img/logo-m3.png" alt="Logo M3" />
         <button class="header__btn_bag">
           <img
@@ -24,6 +24,10 @@
           />
         </button>
         <span class="header__cart"> </span>
+      </div>
+      <div id="header_mobile_filters" class="header__items_mobile">
+        <h3 class="header__mobile_title">FILTRAR</h3>
+        <img class="header__img_mobile_x" src="./img/group-X.png">
       </div>
     </div>
   </header>
@@ -272,8 +276,8 @@
         </div>
       </div>
       <div class="content__sidebar__btn_submit_filters">
-        <button class="content__sidebar__btn_apply">APLICAR</button>
-        <button class="content__sidebar__btn_clean">LIMPAR</button>
+        <button id="btn_apply" class="content__sidebar__btn_apply">APLICAR</button>
+        <button id="btn_clean" class="content__sidebar__btn_clean">LIMPAR</button>
       </div>
     </div>
   </body>
