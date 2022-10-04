@@ -20,11 +20,11 @@ export class CartView extends View {
                       2
                     )}x de R$${c.parcelamento[1].toFixed(2)}</p>
                     <p class="header__amountItems"> 
-                      <button class="header__btn_amount" >
+                      <button name="${c.id}" id="btn_amount_minus" class="header__btn_amount" >
                         <img class="header__img_amount" src="/img/minus.png" />
                       </button> 
-                      1
-                      <button class="header__btn_amount" >
+                      <a id="set_amount${c.id}">1</a>
+                      <button name="${c.id}" id="btn_amount_plus" class="header__btn_amount" >
                         <img class="header__img_amount" src="/img/plus.png" />
                       </button> 
                     <p/>

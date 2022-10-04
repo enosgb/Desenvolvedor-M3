@@ -35,20 +35,22 @@ export class ProductController {
       .then((response) => response.json())
       .then((products) => {
         this._productsList.add(products);
-        this._sidebarController = new SidebarController(products,lenProducts);
+        this._sidebarController = new SidebarController(products, lenProducts);
         this._sidebarController.loadSidebar();
-        this._productsView.update(this._productsList.products.slice(0, lenProducts));
-        this._getMoreProducts(this._productsList.products,lenProducts);
+        this._productsView.update(
+          this._productsList.products.slice(0, lenProducts)
+        );
+        this._getMoreProducts(this._productsList.products, lenProducts);
       });
   }
 
-  _getMoreProducts(products,lenProducts) {
+  _getMoreProducts(products, lenProducts) {
     let length = lenProducts;
     let productList = this._productsList;
     let productsView = this._productsView;
     this._btnLoadMore.addEventListener("click", function () {
       length += lenProducts;
-      productsView.update(productList.products.slice(0, length));
+      productsView.update(productList .products.slice(0, length));
       if (products.length <= length) {
         this.hidden = true;
       }
@@ -58,16 +60,21 @@ export class ProductController {
   _purchase() {
     let productsList = this._productsList;
     let cartView = this._cartView;
-    let ShoppingList = this._shoppingList;
+    let shoppingList = this._shoppingList;
     let btnBag = this._btnBag;
+    let cartController = this._cartController
     this._btnPurchase.addEventListener("click", function (event) {
       let id = event.target.id;
       if (id >= 0) {
         productsList.products.forEach((p) => {
           if (p.id == id) {
-            ShoppingList.add(p);
-            cartView.update(ShoppingList.purchases);
-            cartView.countItemsCart(ShoppingList.purchases.length, btnBag);
+            let purchaseExists = shoppingList.add(p);
+            if (!purchaseExists) {
+              cartView.update(shoppingList.purchases);
+              cartView.countItemsCart(shoppingList.purchases.length, btnBag);              
+              shoppingList.addAmount([{ id: id, count: 1 }]);
+              cartController.updateAmount(shoppingList,shoppingList.amount,id)
+            }
             id = -1;
           }
         });

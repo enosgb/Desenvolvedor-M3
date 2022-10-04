@@ -86,6 +86,7 @@ body {
   &__img_amount {
     width: 10px;
     height: 10px;
+    pointer-events: none;
   }
 
   &__amountItems {
