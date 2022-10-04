@@ -23,7 +23,7 @@ export class FilterList {
     this._priceList.push(price);
   }
 
-  addOrder(order){
+  addOrder(order) {
     this._orderList.push(order);
   }
 
@@ -59,13 +59,18 @@ export class FilterList {
     }
   }
 
-
   clearProducts() {
     this._productsList = [];
   }
 
-  clearOrder(){
+  clearOrder() {
     this._orderList = [];
+  }
+
+  clearFilters() {
+    this._colorList = [];
+    this._sizeList = [];
+    this._priceList = [];
   }
 
   get products() {
@@ -84,7 +89,7 @@ export class FilterList {
     return [].concat(this._priceList);
   }
 
-  get order(){
+  get order() {
     return [].concat(this._orderList);
   }
 }

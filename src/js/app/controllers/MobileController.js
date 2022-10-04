@@ -103,6 +103,7 @@ export class MobileController {
       productView.update(productList.slice(0, lenProducts));
       btn_load_more.hidden = false;
       filterList.clearProducts();
+      filterList.clearFilters();
     }
 
     function showBtnSubmitButtons(display = "flex") {
