@@ -9,7 +9,7 @@ export class FilterController {
     this._sizeButtons = $(".content__sidebar__sizes");
     this._checkboxPrices = $(".content__sidebar__prices");
     this._filterlist = new FilterList();
-    this._mobileController = new MobileController();
+    this._mobileController = new MobileController(productsList,productsView,lenProducts,this._filterlist);
     this._productsView = productsView;
     this._btnLoadMore = $(".content__container__btn_load_more");
     this._sl_orderby = $(".content__container__btn_select_oderby");
@@ -35,7 +35,7 @@ export class FilterController {
       function actionSelect(content) {
         if (content.style.display == "block") {
           content.style.display = "none";
-          if(lenProducts < 9) mobileController.hideAndUnhideScreen("show");
+          if(screen.width < 1300) mobileController.hideAndUnhideScreen("show");
         } else {
           content.style.display = "block";
         }

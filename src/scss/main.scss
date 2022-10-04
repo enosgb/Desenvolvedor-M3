@@ -27,6 +27,11 @@ body {
     text-transform: uppercase;
   }
 
+  &__mobile_btn_close{
+    background-color: transparent;
+    border: none;
+  }
+
   &__img_mobile_x{
     margin: 26px 0 16px 0;
     width: 20px;
