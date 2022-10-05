@@ -2,7 +2,7 @@
 
 - Enos Melo
 - linkedIn [https://www.linkedin.com/in/enosgb/](mailto:https://www.linkedin.com/in/enosgb/)
-- whatsapp [+5522981821172](mailto:+5522981821172)
+- whatsapp [+5522981821172]
 - email [enosgb55@gmail.com](mailto:enosgb55@gmail.com)
 
 ### Desejáveis:
