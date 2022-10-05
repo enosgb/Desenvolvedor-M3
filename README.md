@@ -5,14 +5,6 @@
 - whatsapp +5522981821172
 - email [enosgb55@gmail.com](mailto:enosgb55@gmail.com)
 
-### Desejáveis:
-
-- Experiência com algum CMS
-- Conhecimento/Experiência em Vtex
-- Nodejs
-- Typescript
-- React
-
 ----
 
 ### Dependencias
