@@ -1,6 +1,6 @@
 ### Contato
 
-- nome Enos Melo
+- Enos Melo
 - whatsapp [+5522981821172](mailto:+5522981821172)
 - email [enosgb55@gmail.com](mailto:enosgb55@gmail.com)
 
