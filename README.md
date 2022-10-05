@@ -9,7 +9,7 @@
 - Sites responsivos;
 - Iniciativa, criatividade e colaboração;
 - Boas práticas: reutilização de código, semântica, organização, performance.
-- - envie para [heraldo@digitalm3.com.br](mailto:heraldo@digitalm3.com.br?subject=Vaga%20DEV%20-%20Digital%20M3)
+- - envie para [enosgb55@gmail.com](mailto:enosgb55@gmail.com)
 
 ### Desejáveis:
 
