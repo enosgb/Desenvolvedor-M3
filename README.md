@@ -1,15 +1,4 @@
-# Venha ser um desenvolvedor da Digital M3
-
-Ola, somos a Agência Digital M3, uma agência voltada para ramo de comercio eletrônico, trabalhamos com implantação, migração, evolução e otmização de e-commerces. Estamos com a sede de desenvolvimento em Nova Friburgo RJ. Mas contratamos pessoas de todo o pais, visto que trabalhamos 100% home office.  
-> R. Helena Coutinho, 41 
-> Braunes, Nova Friburgo/RJ
-[https://goo.gl/maps/2mWagcctnrGdtFhBA]( https://goo.gl/maps/2mWagcctnrGdtFhBA )
-
-Estamos procurando Desenvolvedores(as) `Front-end`, com sólidos conhecimentos em HTML, CSS e JS para projetar interfaces e entregar a melhor experiência para os consumidores visando sempre a otimização do código e agilidade no desenvolvimento.
-
-## O que procuramos
-
-### Requisitos Obrigatórios
+### Contato
 
 - Html5, css3;
 - Javascript;
@@ -20,6 +9,7 @@ Estamos procurando Desenvolvedores(as) `Front-end`, com sólidos conhecimentos e
 - Sites responsivos;
 - Iniciativa, criatividade e colaboração;
 - Boas práticas: reutilização de código, semântica, organização, performance.
+- - envie para [heraldo@digitalm3.com.br](mailto:heraldo@digitalm3.com.br?subject=Vaga%20DEV%20-%20Digital%20M3)
 
 ### Desejáveis:
 
