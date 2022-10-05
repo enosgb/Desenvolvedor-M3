@@ -1,15 +1,8 @@
 ### Contato
 
-- Html5, css3;
-- Javascript;
-- Consumo de APIs.
-- Versionamento Git;
-- Grunt/gulp;
-- Sass/less;
-- Sites responsivos;
-- Iniciativa, criatividade e colaboração;
-- Boas práticas: reutilização de código, semântica, organização, performance.
-- - envie para [enosgb55@gmail.com](mailto:enosgb55@gmail.com)
+- nome Enos Melo
+- whatsapp [+5522981821172](mailto:+5522981821172)
+- email [enosgb55@gmail.com](mailto:enosgb55@gmail.com)
 
 ### Desejáveis:
 
