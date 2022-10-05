@@ -1,7 +1,7 @@
 ### Contato
 
 - Enos Melo
-- linkeddin [https://www.linkedin.com/in/enosgb/](mailto:https://www.linkedin.com/in/enosgb/)
+- linkedIn [https://www.linkedin.com/in/enosgb/](mailto:https://www.linkedin.com/in/enosgb/)
 - whatsapp [+5522981821172](mailto:+5522981821172)
 - email [enosgb55@gmail.com](mailto:enosgb55@gmail.com)
 
