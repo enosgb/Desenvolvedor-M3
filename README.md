@@ -3,15 +3,7 @@
 - Enos Melo
 - linkedIn [https://www.linkedin.com/in/enosgb/](https://www.linkedin.com/in/enosgb/)
 - whatsapp +5522981821172
-- email [enosgb55@gmail.com](mailto:enosgb55@gmail.com)
-
-### Desejáveis:
-
-- Experiência com algum CMS
-- Conhecimento/Experiência em Vtex
-- Nodejs
-- Typescript
-- React
+- email [enosgabriel@icloud.com](mailto:enosgabriel@icloud.com)
 
 ----
 
